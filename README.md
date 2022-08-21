@@ -1,2 +1,4 @@
-# clinic-alpha-one
-Our first virtual clinic
+# Alpha One Clinic
+Home page
+
+[Personal Health Records](./docs/readme.md)
