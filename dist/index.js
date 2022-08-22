@@ -1,4 +1,4 @@
-import { html, render } from './lit-html.min.js';
+import { html, render } from '/clinic-alpha-one/dist/lit-html.min.js';
 
 let Strophe, $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = "pade.chat", host = "pade.chat:5443";
 	
