@@ -1,121 +1,50 @@
-# [Project Deserve](https://project-deserve.github.io)
-## [Alpha One Clinic](https://project-deserve.github.io/clinic-alpha-one)
-### [Personal Health Records](https://project-deserve.github.io/clinic-alpha-one/Personal%20Health%20Records/)
-#### Patient 691b1821-5ce4-40e3-a7c4-8cf6c086be09
+# [Alpha One Clinic](https://project-deserve.github.io/clinic-alpha-one)
+## [Personal Health Records](https://project-deserve.github.io/clinic-alpha-one/Personal%20Health%20Records/)
+### Patient 691b1821-5ce4-40e3-a7c4-8cf6c086be09
 
-TODO  
+### Identity
 
-<details>
-<summary><b>Raw Data</b></summary>
-{
-  "user": {
-    "id": "object_uid",
-    "firstName": "John",
-    "middleName": "Random",
-    "lastName": "Doe",
-    "email": "john.doe@example.com",
-    "createdAt": "2013/12/20",
-    "updatedAt": "2013/12/20",
-    "birthdate": "1980/10/20",
-    "illnesses": [
-      {
-        "id": "object_uid",
-        "illness_type_id": "object_uid",
-        "startDate": "2013/12/20",
-        "endDate": "2013/12/25",
-        "createdAt": "2013/12/25",
-        "updatedAt": "2013/12/25",
-        "medicationsTaken": [
-          {
-            "medication_id": "object_uid",
-            "startDate": "2013/12/21",
-            "endDate": "2013/12/25"
-          }
-        ],
-        "versions": [
-          {
-            "id": "object_uid",
-            "illness_type_id": "object_uid",
-            "startDate": "2013/12/20",
-            "endDate": "2013/12/25",
-            "medicationsTaken": [
-              {
-                "medication_id": "object_uid",
-                "startDate": "2013/12/21",
-                "endDate": "2013/12/25"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "activities": [
-      {
-        "id": "object_uid",
-        "type": "Bench Press",
-        "date": "2013/12/20",
-        "time": "20:30",
-        "weight": "120",
-        "reps": "8",
-        "sets": "3"
-      },
-      {
-        "id": "object_uid",
-        "type": "Exercise Bike",
-        "date": "2013/12/19",
-        "time": "20:30",
-        "duration": "1800",
-        "restingHeartRate": "103",
-        "targetHeartRate": "132",
-        "caloriesBurned": "189"
-      }
-    ],
-    "conditions": [
-      {
-        "condition_id": "object_uid",
-        "startDate": "2010/1/3",
-        "endDate": null,
-        "medicationsTaken": [
-          {
-            "medication_id": "object_uid",
-            "datesTaken": [
-              "2013/10/12",
-              "2011/10/12"
-            ]
-          }
-        ]
-      }
-    ],
-    "currentMedications": [
-      {
-        "medication_id": "object_uid",
-        "medication_type_id": "object_uid",
-        "startDate": "2013/12/21",
-        "condition_type": "illness or condition name",
-        "condition_id": "object_uid"
-      }
-    ],
-    "medicationsTaken": [
-      {
-        "medication_id": "object_uid",
-        "medication_type_id": "object_uid",
-        "startDate": "2012/12/21",
-        "endDate": "2012/12/25",
-        "condition_type": "illness or condition name",
-        "condition_id": "object_uid"
-      }
-    ],
-    "treatements": [
-      {
-        "treatement_id": "object_uid",
-        "treatment_type_id": "object_uid",
-        "treatement_name": "Phyiscal Therapy",
-        "startDate": "2012/10/1",
-        "endDate": "2012/12/3",
-        "provider": "object_uid",
-        "activity_id": "object_uid"
-      }
-    ]
-  }
-}
-</details>
+| **First Name** | John  |  
+| :--- | :--- | 
+| **Middle Name** | Random |    
+| **Last Name** | Doe |  
+| **Email** | john.doe@example.com |  
+| **Created** | 2021/12/20 | 
+| **Updated** | 2021/12/20 | 
+| **Birth** | 1980/10/20 | 
+
+### Illnesses
+
+| Id | Type | Start Date | End Date | Created | Updated | Medication Taken |  
+| --- | --- | --- | --- | --- | --- | --- | 
+| i-1 | xxxxx | 2013/12/20 | 2013/12/25 | 2013/12/25 | 2013/12/25 | [m-1](#meds) |  
+| i-2 | xyyy | 2013/12/20 | 2013/12/25 | 2013/12/25 | 2013/12/25 | [m-2](#meds) |  
+
+### Activities
+
+| Id | Type | Date | Time | Weight | Reps | Sets | Duration | Resting HR | Target HR | Calories Burned |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| a-1 | Bench Press | 2013/12/20 | 20:30 | 120 | 8 | 3 |  - | - | - | - |
+| a-2 | Exercise Bike | 2013/12/19 | 20:30 | - | - | - | 1800 | 103 | 132 | 189 |
+
+### Conditions
+
+| Id | Start Date | End Date | Medication Taken |  
+| --- | --- | --- | --- |
+| c-1 | 2013/12/20 | 2013/12/25 | [m-3](#meds) |  
+| c-2 | 2013/12/20 | 2013/12/25 | [m-4](#meds) | 
+
+### Medications<a id=meds></a>
+
+| Id | Type | Start Date | Description |
+| --- | --- | --- | --- | 
+| m-1 | illness | 2013/12/20 | *illness name* |  
+| m-2 | illness | 2013/12/20 | *illness name* | 
+| m-3 | condition | 2013/12/20 | *condition name* |  
+| m-4 | condition | 2013/12/20 | *condition name* | 
+
+### Treatements
+
+| Id | Name | Start Date | End Date | Teatment Provider |  
+| --- | --- | --- | --- | -- |
+| t-1 | Phyiscal Therapy | 2013/12/20 | 2013/12/25 | xxxxxxxx |  
