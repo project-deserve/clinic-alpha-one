@@ -22,10 +22,10 @@
 
 ### Activities
 
-| Id | Type | Date | Time | Weight | Reps | Sets | Duration | Resting HR | Target HR | Calories Burned |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| a-1 | Bench Press | 2013/12/20 | 20:30 | 120 | 8 | 3 |  - | - | - | - |
-| a-2 | Exercise Bike | 2013/12/19 | 20:30 | - | - | - | 1800 | 103 | 132 | 189 |
+| Id | Type | Date | Time | Weight | Reps | Sets | Duration | Heart Rate | Calories Burned |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| a-1 | Bench Press | 2013/12/20 | 20:30 | 120 | 8 | 3 |  - | - | - |
+| a-2 | Exercise Bike | 2013/12/19 | 20:30 | - | - | - | 1800 | 132 | 189 |
 
 ### Conditions
 
