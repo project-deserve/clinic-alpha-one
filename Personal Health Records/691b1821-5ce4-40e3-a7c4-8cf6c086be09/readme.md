@@ -4,7 +4,7 @@
 
 ### Identity
 
-| . | . |  
+| &nbsp; | &nbsp; |  
 | :--- | :--- | 
 | **First Name** | John  |  
 | **Middle Name** | Random |    

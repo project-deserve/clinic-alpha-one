@@ -1,0 +1,30 @@
+name: Book Doctor Appointment
+on:
+  issues:
+    types: opened
+concurrency: 'main'
+jobs:
+  place_order:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - uses: stefanbuck/github-issue-praser@v2
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
+
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > appointment.json
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
+          git config --global user.name "github-actions[bot]" && \
+          git add appointment.json && \
+          git commit -m 'Book Appointment' && \
+          git push

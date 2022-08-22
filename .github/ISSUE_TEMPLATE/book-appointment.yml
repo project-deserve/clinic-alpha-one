@@ -1,0 +1,85 @@
+name: Book Doctor Appointment
+description: This issue captures all data required by doctor to schedule an appointment
+labels: [appointment]
+
+title: "Schedule an appointment with doctor"
+
+body:
+- type: input
+  id: id
+  attributes:
+    label: Identity Number
+  validations:
+    required: true
+    
+- type: dropdown
+  id: reason
+  attributes:
+    label: Choose a reason for the appointment
+    options:
+      - Ask a Question
+      - Developed a condition
+      - Became ill
+  validations:
+    required: true
+
+- type: dropdown
+  id: condition
+  attributes:
+    label: Select your condition
+    options:
+      - c-1 - unknown
+      - c-2 - yyyyyyyyyyyyy
+      - c-3 - zzzzzzzzzzzzz
+  validations:
+    required: false
+
+- type: dropdown
+  id: illness
+  attributes:
+    label: Select your illness
+    options:
+      - i-1 - unknown
+      - i-2 - xxxxxxxxxxx
+      - i-3 - yyyyyyyyyyy
+  validations:
+    required: false
+
+- type: input
+  id: weight
+  attributes:
+    label: Weight
+  validations:
+    required: true
+    
+- type: input
+  id: height
+  attributes:
+    label: Height
+  validations:
+    required: true
+    
+- type: input
+  id: blood_pressure
+  attributes:
+    label: Blood Pressure
+  validations:
+    required: true    
+
+- type: dropdown
+  id: communication
+  attributes:
+    label: Select a method of communication
+    options:
+      - Chat
+      - Telephone Call
+      - Video Conference
+  validations:
+    required: true
+        
+- type: checkboxes
+  attributes:
+    label: I acknowledge that submitting this issue does not guarantee an apointment
+    options:
+      - label: Confirm
+        required: true
