@@ -1,4 +1,4 @@
-import { html, render } from './dist/lit-html.min.js';
+import { html, render } from './lit-html.min.js';
 
 let Strophe, $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = "pade.chat", host = "pade.chat:5443";
 	
@@ -11,9 +11,9 @@ var converse_api = (function(api)
 
     window.addEventListener("load", function()
     {
-		loadCSS('/dist/converse.min.css');
-		loadJS('/dist/libsignal-protocol.min.js');
-		loadJS('/dist/converse.js');
+		loadCSS('/clinic-alpha-one/dist/converse.min.css');
+		loadJS('/clinic-alpha-one/dist/libsignal-protocol.min.js');
+		loadJS('/clinic-alpha-one/dist/converse.js');
 		
 		loadJS('/packages/galene/galene.js');			
 
@@ -31,7 +31,7 @@ var converse_api = (function(api)
         var config =
         {
             theme: 'concord',
-			assets_path: "./dist/",			
+			assets_path: "/clinic-alpha-one/dist/",			
             allow_non_roster_messaging: true,
             loglevel: 'info',
             authentication: 'anonymous',
@@ -100,7 +100,7 @@ var converse_api = (function(api)
     function loadJS(name)
     {
         var s1 = document.createElement('script');
-        s1.src ="./" + name;
+        s1.src = name;
         s1.async = false;
         document.body.appendChild(s1);
     }
@@ -111,7 +111,7 @@ var converse_api = (function(api)
         var link  = document.createElement('link');
         link.rel  = 'stylesheet';
         link.type = 'text/css';
-        link.href = "./" + name;
+        link.href = name;
         head.appendChild(link);
     }
 
