@@ -4,7 +4,7 @@ on:
     types: opened
 concurrency: 'main'
 jobs:
-  place_order:
+  book_appointment:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
