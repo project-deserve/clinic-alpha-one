@@ -43,6 +43,7 @@ var converse_api = (function(api)
             locked_domain: hostname,
             auto_away: 300,
             auto_reconnect: true,
+			nickname: 'unknown-' + Math.random().toString(36).substr(2,9),
             bosh_service_url: 'https://' + host + '/http-bind/',
             auto_join_rooms:['deserve_chat@conference.' + hostname],
             message_archiving: 'always',
