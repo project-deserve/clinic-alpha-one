@@ -11,22 +11,28 @@ var converse_api = (function(api)
 
     window.addEventListener("load", function()
     {
-		WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
-			if (!err) {
-				navigator.credentials.get({password: true}).then(function(credential) {
-					console.debug("window.load credential", credential);	
-					
-					if (credential) {
-						loginUser(credential.id, credential.password);
-					} else {
-						registerUser();							
-					}
-				}).catch(function(err){
-					console.error("window.load credential error", err);	
-					registerUser();					
-				});	
-			}
-		});		
+		const username = sessionStorage.getItem("project.deserve.user");
+		
+		if (!username) {
+			WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
+				if (!err) {
+					navigator.credentials.get({password: true}).then(function(credential) {
+						console.debug("window.load credential", credential);	
+						
+						if (credential) {
+							loginUser(credential.id, credential.password);
+						} else {
+							registerUser();							
+						}
+					}).catch(function(err){
+						console.error("window.load credential error", err);	
+						registerUser();					
+					});	
+				}
+			});		
+		} else {
+			setupConverse(username);
+		}
     });
 		
     function setupConverse(username)
@@ -36,6 +42,8 @@ var converse_api = (function(api)
             setTimeout(setupConverse, 500);
             return;
         }
+		
+		sessionStorage.setItem("project.deserve.user", username);
 
         var config =
         {
