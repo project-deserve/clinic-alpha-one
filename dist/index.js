@@ -12,7 +12,12 @@ var converse_api = (function(api)
     window.addEventListener("load", function()
     {
 		const username = sessionStorage.getItem("project.deserve.user");
-		const password = sessionStorage.getItem("project.deserve.password");		
+		const password = sessionStorage.getItem("project.deserve.password");	
+
+		if (hostname != "localhost") {
+			hostname = "pade.chat";
+			host = "pade.chat:5443";			
+		}		
 		
 		if (!username) {
 			WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
