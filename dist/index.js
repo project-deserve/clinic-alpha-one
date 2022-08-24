@@ -1,6 +1,6 @@
 import { html, render } from '/clinic-alpha-one/dist/lit-html.min.js';
 
-let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = "localhost", host = "localhost:7070";
+let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = location.hostname, host = location.host;
 	
 var converse_api = (function(api)
 {
