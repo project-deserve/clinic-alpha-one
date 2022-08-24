@@ -1,6 +1,6 @@
 import { html, render } from '/clinic-alpha-one/dist/lit-html.min.js';
 
-let Strophe, $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = "pade.chat", host = "pade.chat:5443";
+let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = "localhost", host = "localhost:7070";
 	
 var converse_api = (function(api)
 {
@@ -12,6 +12,7 @@ var converse_api = (function(api)
     window.addEventListener("load", function()
     {
 		const username = sessionStorage.getItem("project.deserve.user");
+		const password = sessionStorage.getItem("project.deserve.password");		
 		
 		if (!username) {
 			WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
@@ -31,30 +32,28 @@ var converse_api = (function(api)
 				}
 			});		
 		} else {
-			setupConverse(username);
+			setupConverse(username, password);
 		}
     });
 		
-    function setupConverse(username)
+    async function setupConverse(username, password)
     {
-        if (!window.converse)
-        {
-            setTimeout(setupConverse, 500);
-            return;
-        }
-		
 		sessionStorage.setItem("project.deserve.user", username);
-
+		sessionStorage.setItem("project.deserve.password", password);		
+		
+		const pass = await hashCode(password);
+		
         var config =
         {
             theme: 'concord',
 			assets_path: "/clinic-alpha-one/dist/",			
             allow_non_roster_messaging: true,
             loglevel: 'info',
-            authentication: 'anonymous',
+            authentication: 'login',
             auto_login: true,
 		    discover_connection_methods: false,					
-            jid: hostname,
+            jid: username + "@" + hostname,
+			password: pass,
             default_domain: hostname,
             domain_placeholder: hostname,
             locked_domain: hostname,
@@ -63,6 +62,7 @@ var converse_api = (function(api)
 			nickname: username,
             bosh_service_url: location.protocol + '//' + host + '/http-bind/',
             auto_join_rooms:['deserve_chat@conference.' + hostname],
+			auto_join_private_chats: [],
             message_archiving: 'always',
 			websocket_url: (host == "localhost:7070" || location.protocol == "http:" ? "ws://" : "wss://") + host + '/ws/',
             whitelisted_plugins: ['deserve']
@@ -75,8 +75,6 @@ var converse_api = (function(api)
 
             initialize: function () {
                 _converse = this._converse;
-
-                Strophe = converse.env.Strophe;
                 $iq = converse.env.$iq;
                 $msg = converse.env.$msg;
                 $pres = converse.env.$pres;
@@ -96,7 +94,6 @@ var converse_api = (function(api)
                     `);
                     return buttons;
                 });
-
             }
 
         });
@@ -192,7 +189,7 @@ var converse_api = (function(api)
 
 				WebAuthnGoJS.FinishLogin(userStr, authSessDataStr, loginBodyStr, (err, result) => {
 					console.debug("Login result", username, err, result);
-					if (!err) setupConverse(username);
+					if (!err) setupConverse(username, userStr);
 				});
 			}).catch((err) => {
 				console.error("Login failed", err);
@@ -201,9 +198,10 @@ var converse_api = (function(api)
 	}	
 	
 	function registerUser() {
-		const username = prompt("Please enter a username");
+		const username = prompt("Please enter a username").toLocaleLowerCase().replaceAll(" ", "");
+		const token = prompt("Please enter your password");
 
-		if (!username || username === "") {
+		if (!username || username === "" || !token || token === "") {
 			return;
 		}
 
@@ -265,6 +263,7 @@ var converse_api = (function(api)
 				{
 					if (!err) {
 						const credential = JSON.parse(result);
+						credential.github_token = token;
 						user.credentials.push(credential);						
 						registerCredential(username, JSON.stringify(user));
 					}
@@ -285,7 +284,7 @@ var converse_api = (function(api)
 				navigator.credentials.store(credential).then(function()
 				{
 					console.log("registerCredential - storeCredentials stored");
-					setupConverse(id);					
+					registerXmppUser(id, pass);					
 
 				}).catch(function (err) {
 					console.error("registerCredential - storeCredentials error", err);
@@ -296,6 +295,47 @@ var converse_api = (function(api)
 			console.error("registerCredential - storeCredentials error", err);		
 		});			
 	}	
+
+	async function hashCode(target){
+	   var buffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(target));
+	   var chars = Array.prototype.map.call(new Uint8Array(buffer), ch => String.fromCharCode(ch)).join('');
+	   return btoa(chars);
+	}
+	
+	async function registerXmppUser(id, pass) {		
+		const url = location.protocol + '//' + host + '/http-bind/';
+		const connection = new Strophe.Connection(url);	
+		const password = await hashCode(pass);
+		
+		const callback = function (status) 
+		{
+			if (status === Strophe.Status.REGISTER) {
+				connection.register.fields.username = id;
+				connection.register.fields.password = password;
+				connection.register.submit();
+				
+			} else if (status === Strophe.Status.REGISTERED) {
+				console.debug("callback - registered!");
+				connection.disconnect();				
+				setupConverse(id, pass);				
+				
+			} else if (status === Strophe.Status.CONFLICT) {
+				console.log("callback - user already existed!");
+				connection.disconnect();				
+				setupConverse(id, pass);				
+				
+			} else if (status === Strophe.Status.NOTACCEPTABLE) {
+				console.log("callback - registration form not properly filled out.");
+				connection.disconnect();				
+				
+			} else if (status === Strophe.Status.REGIFAIL) {
+				console.log("callback - The Server does not support In-Band Registration");
+				connection.disconnect();				
+			}
+		};
+			
+		connection.register.connect(hostname, callback);		
+	}
 
     //-------------------------------------------------------
     //
@@ -314,7 +354,9 @@ var converse_api = (function(api)
 	
 	loadCSS('/clinic-alpha-one/dist/converse.min.css');
 	loadJS('/clinic-alpha-one/dist/go-webauthn.min.js');		
-	loadJS('/clinic-alpha-one/dist/libsignal-protocol.min.js');
+	loadJS('/clinic-alpha-one/dist/stophe.min.js');
+	loadJS('/clinic-alpha-one/dist/strophe.register.js');
+	loadJS('/clinic-alpha-one/dist/libsignal-protocol.min.js');	
 	loadJS('/clinic-alpha-one/dist/converse.js');	
 
     return api;
