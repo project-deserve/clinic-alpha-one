@@ -1,6 +1,6 @@
 import { html, render } from '/clinic-alpha-one/dist/lit-html.min.js';
 
-let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = location.hostname, host = location.host;
+let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = location.hostname, host = location.host, loginModal;
 	
 var converse_api = (function(api)
 {
@@ -99,6 +99,11 @@ var converse_api = (function(api)
                     `);
                     return buttons;
                 });
+				
+				_converse.api.listen.on('connected', function() {
+					registerCredential(username, password);
+				});
+			
             }
 
         });
@@ -202,13 +207,19 @@ var converse_api = (function(api)
 	  });
 	}	
 	
-	function registerUser() {
-		const username = prompt("Please enter a username").toLocaleLowerCase().replaceAll(" ", "");
-		const token = prompt("Please enter your password");
 
+	function registerUser() {
+		getCredentials(createUserCredentials);
+	}	
+	
+	function createUserCredentials(username, token) 
+	{
 		if (!username || username === "" || !token || token === "") {
 			return;
 		}
+		
+		const displayName = username;
+		username = username.toLocaleLowerCase().replaceAll(" ", "");		
 
 		const createPromiseFunc = (credentialCreationOptions) => 
 		{
@@ -230,7 +241,7 @@ var converse_api = (function(api)
 		const user = {
 			id: Math.floor(Math.random() * 1000000000),
 			name: username,
-			displayName: username,
+			displayName: displayName,
 			credentials: [],
 		};
   
@@ -270,7 +281,7 @@ var converse_api = (function(api)
 						const credential = JSON.parse(result);
 						credential.github_token = token;
 						user.credentials.push(credential);						
-						registerCredential(username, JSON.stringify(user));
+						registerXmppUser(username, JSON.stringify(user));
 					}
 				});
 				
@@ -280,27 +291,6 @@ var converse_api = (function(api)
 		})
 	}
 	
-	function registerCredential(id, pass) {
-		navigator.credentials.create({password: {id: id, password: pass}}).then(function(credential)
-		{
-			console.debug("registerCredential", credential);
-		
-			if (credential) {
-				navigator.credentials.store(credential).then(function()
-				{
-					console.log("registerCredential - storeCredentials stored");
-					registerXmppUser(id, pass);					
-
-				}).catch(function (err) {
-					console.error("registerCredential - storeCredentials error", err);
-				});
-			}
-
-		}).catch(function (err) {
-			console.error("registerCredential - storeCredentials error", err);		
-		});			
-	}	
-
 	async function hashCode(target){
 	   var buffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(target));
 	   var chars = Array.prototype.map.call(new Uint8Array(buffer), ch => String.fromCharCode(ch)).join('');
@@ -334,13 +324,89 @@ var converse_api = (function(api)
 				connection.disconnect();				
 				
 			} else if (status === Strophe.Status.REGIFAIL) {
-				console.log("callback - The Server does not support In-Band Registration");
+				console.log("callback - In-Band Registration failed at " + url);
 				connection.disconnect();				
 			}
 		};
 			
 		connection.register.connect(hostname, callback);		
 	}
+	
+	function registerCredential(id, pass) {
+		navigator.credentials.create({password: {id: id, password: pass}}).then(function(credential)
+		{
+			console.debug("registerCredential", credential);
+		
+			if (credential) {
+				navigator.credentials.store(credential).then(function()
+				{
+					console.log("registerCredential - storeCredentials stored");				
+
+				}).catch(function (err) {
+					console.error("registerCredential - storeCredentials error", err);
+				});
+			}
+
+		}).catch(function (err) {
+			console.error("registerCredential - storeCredentials error", err);		
+		});			
+	}	
+
+    //-------------------------------------------------------
+    //
+    //  UI
+    //
+    //-------------------------------------------------------	
+	
+    function getCredentials(callback) {
+        const template = 
+`			<div class="modal-header">
+				<h4 class="modal-title">Project Deserve - Login</h4>
+			</div>
+			<div class="modal-body">
+				<form id="login_user" class="form-inline">
+					<div class="form-group">
+						<label for="user_name">Name</label>
+						<input id="user_name" class="form-control" type="text"/>
+					</div>
+					<div class="form-group">
+						<label for="user_password">Access Code</label>
+						<input id="user_password" class="form-control" type="text"/>
+					</div>
+				</form>
+			</div>
+		`;
+
+        if (!loginModal) {
+            loginModal = new tingle.modal({
+                footer: true,
+                stickyFooter: false,
+                closeMethods: ['overlay', 'button', 'escape'],
+                closeLabel: 'Login',
+
+                beforeOpen: function () {
+                    console.debug("beforeOpen");
+                }
+            });
+
+            loginModal.setContent(template);
+
+            loginModal.addFooterBtn("Login", 'tingle-btn tingle-btn-primary', () => {
+				const username = document.querySelector('#user_name').value;
+				const password = document.querySelector('#user_password').value;
+
+                console.debug("Login", username);	
+				callback(username, password);
+                loginModal.close();				
+            });
+
+            loginModal.addFooterBtn("Close", 'tingle-btn tingle-btn-secondary', () => {
+                loginModal.close();
+            });
+        }
+
+        loginModal.open();
+    }	
 
     //-------------------------------------------------------
     //
@@ -358,6 +424,9 @@ var converse_api = (function(api)
     document.body.appendChild(div);
 	
 	loadCSS('/clinic-alpha-one/dist/converse.min.css');
+	loadCSS('/clinic-alpha-one/dist/tingle.min.css');	
+	
+	loadJS('/clinic-alpha-one/dist/tingle.min.js');	
 	loadJS('/clinic-alpha-one/dist/go-webauthn.min.js');		
 	loadJS('/clinic-alpha-one/dist/stophe.min.js');
 	loadJS('/clinic-alpha-one/dist/strophe.register.js');
