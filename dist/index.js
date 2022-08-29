@@ -209,7 +209,11 @@ var converse_api = (function(api)
 	
 
 	function registerUser() {
-		getCredentials(createUserCredentials);
+		//getCredentials(createUserCredentials);
+		const username = prompt("Username?");
+		const token = prompt("Token?");
+		
+		createUserCredentials(username, token);
 	}	
 	
 	function createUserCredentials(username, token) 
