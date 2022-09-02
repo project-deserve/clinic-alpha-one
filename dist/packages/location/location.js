@@ -152,7 +152,7 @@
 
             const label = _converse.xmppstatus.get('fullname') || _converse.xmppstatus.get('nickname') || _converse.bare_jid;
             const pos = location.href.lastIndexOf('/') + 1;
-            const url = location.href.substring(0, pos) + "packages/location/leaflet/index.html?accuracy=" + position.coords.accuracy + "&lat=" + position.coords.latitude + "&lng=" + position.coords.longitude + "&label=" + label;
+            const url = _converse.api.settings.get("assets_path") + "packages/location/leaflet/index.html?accuracy=" + position.coords.accuracy + "&lat=" + position.coords.latitude + "&lng=" + position.coords.longitude + "&label=" + label;
 
             callback(url, position);
         }
