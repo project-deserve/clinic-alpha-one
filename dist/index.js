@@ -70,7 +70,8 @@ var converse_api = (function(api)
 			auto_join_private_chats: [],
             message_archiving: 'always',
 			websocket_url: (host == "localhost:7070" || location.protocol == "http:" ? "ws://" : "wss://") + host + '/ws/',
-            whitelisted_plugins: ['deserve']
+			jitsimeet_url: 'https://pade.chat:5443/ofmeet',
+            whitelisted_plugins: ['deserve', 'jitsimeet', 'actions', 'location']
         }
 
         console.debug("converse_api setupConverse", config);
@@ -87,18 +88,6 @@ var converse_api = (function(api)
                 __ = _converse.__;
                 dayjs = converse.env.dayjs;
                 converse_html = converse.env.html;
-
-                _converse.api.listen.on('getToolbarButtons', function(toolbar_el, buttons)
-                {
-                    //console.debug("getToolbarButtons", toolbar_el);
-
-                    buttons.push(converse_html`
-                        <button class="deserve-exit" title="${__('Minimize chat')}" @click=${exitConversation} .chatview=${this.chatview}/>
-                            <converse-icon class="fa fa-minus" size="1em"></converse-icon>
-                        </button>
-                    `);
-                    return buttons;
-                });
 				
 				_converse.api.listen.on('connected', function() {
 					registerCredential(username, password);
@@ -110,17 +99,6 @@ var converse_api = (function(api)
 
         converse.initialize( config );
     };
-
-    function exitConversation(ev)
-    {
-        ev.stopPropagation();
-        ev.preventDefault();
-
-        const toolbar_el = converse.env.utils.ancestor(ev.target, 'converse-chat-toolbar');
-        console.debug("exitConversation", toolbar_el.model);
-        const view = _converse.chatboxviews.get(toolbar_el.model.get("jid"));
-        if (view) view.minimize(ev);
-    }
 
     function loadJS(name)
     {
@@ -436,6 +414,9 @@ var converse_api = (function(api)
 	loadJS('/clinic-alpha-one/dist/strophe.register.js');
 	loadJS('/clinic-alpha-one/dist/libsignal-protocol.min.js');	
 	loadJS('/clinic-alpha-one/dist/converse.js');	
+	loadJS('/clinic-alpha-one/dist/packages/jitsimeet/jitsimeet.js');	
+	loadJS('/clinic-alpha-one/dist/packages/actions/actions.js');		
+	loadJS('/clinic-alpha-one/dist/packages/location/location.js');		
 
     return api;
 
