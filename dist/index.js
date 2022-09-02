@@ -19,22 +19,23 @@ var converse_api = (function(api)
 			host = "pade.chat:5443";			
 		}		
 		
-		if (!username) {
+		if (!username || !password) {
 			WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
-				if (!err) {
-					navigator.credentials.get({password: true}).then(function(credential) {
-						console.debug("window.load credential", credential);	
-						
-						if (credential) {
-							loginUser(credential.id, credential.password);
-						} else {
-							registerUser();							
-						}
-					}).catch(function(err){
-						console.error("window.load credential error", err);	
-						registerUser();					
-					});	
+				if (err) {
+					location.href = "/";
 				}
+				navigator.credentials.get({password: true}).then(function(credential) {
+					console.debug("window.load credential", credential);	
+					
+					if (credential) {
+						loginUser(credential.id, credential.password);
+					} else {
+						registerUser();							
+					}
+				}).catch(function(err){
+					console.error("window.load credential error", err);	
+					registerUser();					
+				});	
 			});		
 		} else {
 			setupConverse(username, password);
@@ -147,7 +148,8 @@ var converse_api = (function(api)
 
 		WebAuthnGoJS.BeginLogin(userStr, (err, data) => {
 			if (err) {
-			  alert(err); return;
+				console.error("Login failed", err);				
+				location.href = "/";
 			}
 
 			data = JSON.parse(data);
@@ -177,10 +179,15 @@ var converse_api = (function(api)
 
 				WebAuthnGoJS.FinishLogin(userStr, authSessDataStr, loginBodyStr, (err, result) => {
 					console.debug("Login result", username, err, result);
-					if (!err) setupConverse(username, userStr);
+					
+					if (err) {
+						location.href = "/";
+					}					
+					setupConverse(username, userStr);
 				});
 			}).catch((err) => {
 				console.error("Login failed", err);
+				location.href = "/";				
 			});
 	  });
 	}	
@@ -197,7 +204,7 @@ var converse_api = (function(api)
 	function createUserCredentials(username, token) 
 	{
 		if (!username || username === "" || !token || token === "") {
-			return;
+			location.href = "/";
 		}
 		
 		const displayName = username;
@@ -232,7 +239,8 @@ var converse_api = (function(api)
 		WebAuthnGoJS.BeginRegistration(userStr, (err, data) => 
 		{
 			if (err) {
-			  alert(err); return;
+				console.error("Registration failed", err);				
+				location.href = "/";
 			}
 			
 			data = JSON.parse(data);
@@ -259,16 +267,21 @@ var converse_api = (function(api)
 
 				WebAuthnGoJS.FinishRegistration(userStr, sessDataStr, regBodyStr, (err, result) => 
 				{
-					if (!err) {
-						const credential = JSON.parse(result);
-						credential.github_token = token;
-						user.credentials.push(credential);						
-						registerXmppUser(username, JSON.stringify(user));
+					if (err) {
+						console.error("Registration failed", err);				
+						location.href = "/";
 					}
+					
+					const credential = JSON.parse(result);
+					credential.github_token = token;
+					user.credentials.push(credential);						
+					registerXmppUser(username, JSON.stringify(user));
+
 				});
 				
 			}).catch((err) => {
 				console.error("Registration failed", err);
+				location.href = "/";				
 			});
 		})
 	}
@@ -297,17 +310,19 @@ var converse_api = (function(api)
 				setupConverse(id, pass);				
 				
 			} else if (status === Strophe.Status.CONFLICT) {
-				console.log("callback - user already existed!");
+				console.warn("callback - user already existed!");
 				connection.disconnect();				
 				setupConverse(id, pass);				
 				
 			} else if (status === Strophe.Status.NOTACCEPTABLE) {
-				console.log("callback - registration form not properly filled out.");
-				connection.disconnect();				
+				console.error("callback - registration form not properly filled out.");
+				connection.disconnect();	
+				location.href = "/";					
 				
 			} else if (status === Strophe.Status.REGIFAIL) {
-				console.log("callback - In-Band Registration failed at " + url);
-				connection.disconnect();				
+				console.error("callback - In-Band Registration failed at " + url);
+				connection.disconnect();	
+				location.href = "/";					
 			}
 		};
 			
