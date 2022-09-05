@@ -1,5 +1,3 @@
-import { html, render } from '/clinic-alpha-one/dist/lit-html.min.js';
-
 let $iq, $msg, $pres, _ , __, dayjs, converse_html, _converse, hostname = location.hostname, host = location.host, loginModal;
 	
 var converse_api = (function(api)
