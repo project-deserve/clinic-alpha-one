@@ -36,6 +36,10 @@ var deserve_api = (function(api)
     });
 	
 	function displayCredentials(username, password) {
+		sessionStorage.setItem("project.deserve.user", username);
+		sessionStorage.setItem("project.deserve.password", password);	
+
+		
 		console.debug("displayCredentials", username, password);
 	}
 
@@ -120,7 +124,7 @@ var deserve_api = (function(api)
 					
 					if (err) {
 						location.href = "/";
-					}					
+					}						
 					displayCredentials(username, userStr);
 				});
 			}).catch((err) => {
@@ -238,11 +242,7 @@ var deserve_api = (function(api)
 			if (credential) {
 				navigator.credentials.store(credential).then(function()
 				{
-					console.log("registerCredential - storeCredentials stored");
-					
-					sessionStorage.setItem("project.deserve.user", id);
-					sessionStorage.setItem("project.deserve.password", pass);	
-
+					console.log("registerCredential - storeCredentials stored");				
 					displayCredentials(id, pass);				
 
 				}).catch(function (err) {
