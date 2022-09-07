@@ -298,7 +298,7 @@ var deserve_api = (function(api)
     //
     //-------------------------------------------------------
 	
-	loadJS('./software/go-webauthn.min.js');		
+	loadJS('/clinic-alpha-one/software/go-webauthn.min.js');		
 
     return api;
 
