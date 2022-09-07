@@ -38,9 +38,9 @@ var deserve_api = (function(api)
 	function displayCredentials(username, password) {
 		sessionStorage.setItem("project.deserve.user", username);
 		sessionStorage.setItem("project.deserve.password", password);	
-
 		
 		console.debug("displayCredentials", username, password);
+		location.reload();
 	}
 
     function loadJS(name)
