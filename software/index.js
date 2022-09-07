@@ -36,16 +36,7 @@ var deserve_api = (function(api)
 		}
     });
 
-	function setCredentials(username, password) {
-		sessionStorage.setItem("project.deserve.user", username);
-		sessionStorage.setItem("project.deserve.password", password);			
-		location.reload();
-	}
-	
-	async function handleCredentials(username, password) {
-		const json = JSON.parse(password);		
-		console.debug("handleCredentials", username, json);
-		
+	async function setCredentials(username, password) {
 		/*{
 		  "id": 204304934,
 		  "name": "dir-no",
@@ -71,6 +62,7 @@ var deserve_api = (function(api)
 		  }
 		}
 		*/
+		const json = JSON.parse(password);			
 		const githubToken = json?.github_token;
 		
 		if (githubToken) {
@@ -78,9 +70,17 @@ var deserve_api = (function(api)
 			const response = await fetch("https://api.github.com/orgs/project-deserve/members/" + username, {method: "GET", headers: {authorization: githubAPIToken}});
 
 			if (response.status == 204) {
-				sessionStorage.setItem("project.deserve.token", githubAPIToken);					
+				sessionStorage.setItem("project.deserve.user", username);
+				sessionStorage.setItem("project.deserve.password", password);					
+				sessionStorage.setItem("project.deserve.token", githubAPIToken);
+				
+				location.reload();
 			}
-		}			
+		}		
+	}
+	
+	async function handleCredentials(username, password) {	
+		console.debug("handleCredentials", username);			
 	}
 
     function loadJS(name) {
