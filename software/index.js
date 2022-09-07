@@ -1,5 +1,3 @@
-let loginModal;
-	
 var deserve_api = (function(api)
 {
     window.addEventListener("unload", function()
@@ -65,6 +63,7 @@ var deserve_api = (function(api)
 			  "github_token": "5555555555555555"
 			}
 		  ],
+		  "github_token": "5555555555555555"		  
 		  "registrationSessionData": {
 			"challenge": "6-_H_iDOQzEVomTywFVJueeA0Q8fftZQVIApPNqldMI",
 			"user_id": "puS1YQAAAAAAAA==",
@@ -72,7 +71,7 @@ var deserve_api = (function(api)
 		  }
 		}
 		*/
-		const githubToken = json?.credentials?.github_token;
+		const githubToken = json?.github_token;
 		
 		if (githubToken) {
 			const githubAPIToken = "Basic " + btoa(username + ":" + githubToken);			
@@ -175,7 +174,6 @@ var deserve_api = (function(api)
 	
 
 	function registerUser() {
-		//getCredentials(createUserCredentials);
 		const username = prompt("Username?");
 		const token = prompt("Token?");
 		
@@ -254,7 +252,7 @@ var deserve_api = (function(api)
 					}
 					
 					const credential = JSON.parse(result);
-					credential.github_token = token;
+					user.github_token = token;
 					user.credentials.push(credential);						
 					registerCredential(username, JSON.stringify(user));
 
@@ -292,63 +290,7 @@ var deserve_api = (function(api)
 		}).catch(function (err) {
 			console.error("registerCredential - storeCredentials error", err);		
 		});			
-	}	
-
-    //-------------------------------------------------------
-    //
-    //  UI
-    //
-    //-------------------------------------------------------	
-	
-    function getCredentials(callback) {
-        const template = 
-`			<div class="modal-header">
-				<h4 class="modal-title">Project Deserve - Login</h4>
-			</div>
-			<div class="modal-body">
-				<form id="login_user" class="form-inline">
-					<div class="form-group">
-						<label for="user_name">Name</label>
-						<input id="user_name" class="form-control" type="text"/>
-					</div>
-					<div class="form-group">
-						<label for="user_password">Access Code</label>
-						<input id="user_password" class="form-control" type="text"/>
-					</div>
-				</form>
-			</div>
-		`;
-
-        if (!loginModal) {
-            loginModal = new tingle.modal({
-                footer: true,
-                stickyFooter: false,
-                closeMethods: ['overlay', 'button', 'escape'],
-                closeLabel: 'Login',
-
-                beforeOpen: function () {
-                    console.debug("beforeOpen");
-                }
-            });
-
-            loginModal.setContent(template);
-
-            loginModal.addFooterBtn("Login", 'tingle-btn tingle-btn-primary', () => {
-				const username = document.querySelector('#user_name').value;
-				const password = document.querySelector('#user_password').value;
-
-                console.debug("Login", username);	
-				callback(username, password);
-                loginModal.close();				
-            });
-
-            loginModal.addFooterBtn("Close", 'tingle-btn tingle-btn-secondary', () => {
-                loginModal.close();
-            });
-        }
-
-        loginModal.open();
-    }	
+	}		
 
     //-------------------------------------------------------
     //
@@ -356,8 +298,6 @@ var deserve_api = (function(api)
     //
     //-------------------------------------------------------
 	
-	loadCSS('./software/tingle.min.css');	
-	loadJS('./software/tingle.min.js');	
 	loadJS('./software/go-webauthn.min.js');		
 
     return api;
