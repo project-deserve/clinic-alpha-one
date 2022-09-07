@@ -7,31 +7,34 @@ var deserve_api = (function(api)
         console.debug("deserve_api addListener unload");
     });
 
-    window.addEventListener("load", function()
-    {
-		const username = sessionStorage.getItem("project.deserve.user");
-		const password = sessionStorage.getItem("project.deserve.password");	
+    window.addEventListener("load", function()  {
+		console.debug("window.load", window.location.hostname, window.location.origin, top.location.hostname, top.location.origin);
+		
+		if (top.location.origin == window.location.origin) {
+			const username = sessionStorage.getItem("project.deserve.user");
+			const password = sessionStorage.getItem("project.deserve.password");	
 
-		if (!username || !password) {
-			WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
-				if (err) {
-					location.href = "/";
-				}
-				navigator.credentials.get({password: true}).then(function(credential) {
-					console.debug("window.load credential", credential);	
-					
-					if (credential) {
-						loginUser(credential.id, credential.password);
-					} else {
-						registerUser();							
+			if (!username || !password) {
+				WebAuthnGoJS.CreateContext(JSON.stringify({RPDisplayName: "Project Deserve", RPID: window.location.hostname, RPOrigin: window.location.origin}), (err, val) => {
+					if (err) {
+						location.href = "/";
 					}
-				}).catch(function(err){
-					console.error("window.load credential error", err);	
-					registerUser();					
-				});	
-			});		
-		} else {
-			displayCredentials(username, password);
+					navigator.credentials.get({password: true}).then(function(credential) {
+						console.debug("window.load credential", credential);	
+						
+						if (credential) {
+							loginUser(credential.id, credential.password);
+						} else {
+							registerUser();							
+						}
+					}).catch(function(err){
+						console.error("window.load credential error", err);	
+						registerUser();					
+					});	
+				});		
+			} else {
+				displayCredentials(username, password);
+			}
 		}
     });
 
