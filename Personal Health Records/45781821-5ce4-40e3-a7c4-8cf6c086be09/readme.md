@@ -1,8 +1,7 @@
 # 45781821-5ce4-40e3-a7c4-8cf6c086be09
 
-| &nbsp; | &nbsp; |  
-| :--- | :--- | 
 | **First Name** | Olusola  |  
+| :--- | :--- | 
 | **Middle Name** | Adekemi |    
 | **Last Name** | Oni |  
 | **Email** | sola@example.com |  
