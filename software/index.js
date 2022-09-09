@@ -72,7 +72,7 @@ var deserve_api = (function(api)
 			if (response.status == 204) {
 				sessionStorage.setItem("project.deserve.user", username);
 				sessionStorage.setItem("project.deserve.password", password);					
-				sessionStorage.setItem("project.deserve.token", githubAPIToken);
+				sessionStorage.setItem("project.deserve.token", githubToken);
 				
 				location.reload();
 			}
