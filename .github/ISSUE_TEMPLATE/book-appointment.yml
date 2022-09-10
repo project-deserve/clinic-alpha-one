@@ -6,7 +6,8 @@ title: "Schedule an appointment with doctor"
 body:
 - type: markdown
   attributes:
-    value: ![IMAGE](https://avatars.githubusercontent.com/u/111590499?s=60&v=4)
+    value: |
+    ![IMAGE](https://avatars.githubusercontent.com/u/111590499?s=60&v=4)
     
 - type: input
   id: id
