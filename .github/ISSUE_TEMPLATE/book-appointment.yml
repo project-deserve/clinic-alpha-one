@@ -82,7 +82,7 @@ body:
     required: true
 
 - type: textarea
-    id: additional_info
+  id: additional_info
     attributes:
       label: Additional Information
       description: "Please provide as much information about the patient's current health issue"
