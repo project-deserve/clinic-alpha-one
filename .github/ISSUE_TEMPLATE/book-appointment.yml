@@ -71,14 +71,7 @@ body:
   validations:
     required: true
  
-- type: input
-  id: blood_pressure
-  attributes:
-    label: Blood Pressure
-    description: "Enter the current blod pressure of the patent"
-    placeholder: "ex. xx/yy"
-  validations:
-    required: true
+
 
   - type: textarea
     id: additional_info
