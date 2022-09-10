@@ -1,13 +1,16 @@
 # 45781821-5ce4-40e3-a7c4-8cf6c086be09
 
-| **First Name** | Olusola  |  
-| :--- | :--- | 
-| **Middle Name** | Adekemi |    
-| **Last Name** | Oni |  
-| **Email** | sola@example.com |  
-| **Created** | 2021/12/20 | 
-| **Updated** | 2021/12/20 | 
-| **Birth** | 1980/10/20 | 
+# Personal Details
+
+| First Name | Middle Name | Last Name | Email | Created | Updated | Birth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Olusola | Adekemi | Oni | sola@example.com | 2021/12/20  | 2021/12/20 | 1980/10/20  |
+
+# Visits
+
+| Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| [2022/09/09](https://github.com/project-deserve/clinic-alpha-one/issues/12)| Ask a Question| | | 52 |5/6 |150 |Video Conference| 
 
 # Illnesses
 
