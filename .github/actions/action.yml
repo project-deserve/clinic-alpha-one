@@ -1,0 +1,14 @@
+name: 'GitHub Issue Parser'
+description: 'Use this action to convert issues into a unified JSON structure.'
+branding:
+  icon: "check-square"
+  color: green
+inputs:
+  template-path:
+    description: 'Path to the issue form template file'
+outputs:
+  jsonString:
+    description: 'JSON string'
+runs:
+  using: 'node12'
+  main: './dist/index.js'
