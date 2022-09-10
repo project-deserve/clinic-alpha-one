@@ -25,6 +25,6 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
           git config --global user.name "github-actions[bot]" && \
-          git add appointment.json && \
+          git add "Personal Health Records/45781821-5ce4-40e3-a7c4-8cf6c086be09/appointment.json" && \
           git commit -m 'Book Appointment' && \
           git push
