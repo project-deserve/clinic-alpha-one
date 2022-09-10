@@ -72,6 +72,36 @@ body:
   validations:
     required: true
  
+ - type: input
+  id: blood_pressure
+  attributes:
+    label: Blood Pressure
+    description: "Enter the current blod pressure of the patent"
+    placeholder: "ex. xx/yy"
+  validations:
+    required: true
+  
+
+- type: dropdown
+  id: communication
+  attributes:
+    label: Method of Communication
+    description: "Select the preffered method to communicate with the doctor"
+    options:
+      - Chat
+      - Telephone Call
+      - Video Conference
+  validations:
+    required: true
+    
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: "By submitting this issue, the patient agrees to follow our [Code of Conduct](https://project-deserve.github.io)"
+      options:
+        - label: Confirmation
+          required: true    
 
         
 - type: checkboxes
