@@ -74,9 +74,9 @@ body:
   validations:
     required: false    
 
-  - type: textarea
-    id: medical_history
-    attributes:
+- type: textarea
+  id: medical_history
+  attributes:
       label: Medical History
       description: Please provide as much information about the patients medical history
       render: shell    
