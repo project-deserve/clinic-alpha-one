@@ -1,13 +1,16 @@
 # 691b1821-5ce4-40e3-a7c4-8cf6c086be09
 
-| **First Name** | Femi  |  
-| :--- | :--- | 
-| **Middle Name** | Olusegun |    
-| **Last Name** | Adeleke |  
-| **Email** | femi@example.com |  
-| **Created** | 2021/12/20 | 
-| **Updated** | 2021/12/20 | 
-| **Birth** | 1980/10/20 | 
+# Personal Details
+
+| First Name | Middle Name | Last Name | Email | Created | Updated | Birth |
+| --- | --- | --- | --- | --- | --- | --- |
+| Femi | Olusegun | Adeleke | sola@example.com | 2021/12/20  | 2021/12/20 | 1980/10/20  |
+
+# Visits
+
+| Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| [2022/09/09](https://github.com/project-deserve/clinic-alpha-one/issues/13)| Have a Condition| [c-1](#cnds) | | 52 |5/6 |150 |Video Conference| 
 
 # Illnesses
 
@@ -23,7 +26,7 @@
 | a-1 | Bench Press | 2013/12/20 | 20:30 | 120 | 8 | 3 |  - | - | - |
 | a-2 | Exercise Bike | 2013/12/19 | 20:30 | - | - | - | 1800 | 132 | 189 |
 
-# Conditions
+# Conditions<a id=cnds></a>
 
 | Id | Start Date | End Date | Medication Taken |  
 | --- | --- | --- | --- |
