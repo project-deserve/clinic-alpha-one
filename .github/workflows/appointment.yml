@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '16'
 
-      - uses: .github/actions/issue-parser 
+      - uses: ./.github/actions/issue-parser 
         id: issue-parser
         with:
           template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
