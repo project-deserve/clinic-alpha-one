@@ -72,7 +72,7 @@ body:
   validations:
     required: true
  
- - type: input
+- type: input
   id: blood_pressure
   attributes:
     label: Blood Pressure
@@ -81,7 +81,7 @@ body:
   validations:
     required: true
 
-  - type: textarea
+- type: textarea
     id: additional_info
     attributes:
       label: Additional Information
