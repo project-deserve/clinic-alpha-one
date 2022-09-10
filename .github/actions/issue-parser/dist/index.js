@@ -105,8 +105,14 @@ async function run(env, eventPayload, fs, core) {
         ? toValue(checkListValue)
         : toValue(...lines);
 
-      return [toKey(key), value];
-    });
+		// customisation for ID link
+		
+		const keyName = toKey(key);		
+		if (keyName == "id") value = `(${value})[https://github.com/project-deserve/clinic-alpha-one/tree/main/Personal%20Health%20Records/${value}]`
+
+      return [keyName, value];
+    });	
+	
 
   result.forEach(([key, value]) => {
     core.setOutput(`issueparser_${key}`, value);
