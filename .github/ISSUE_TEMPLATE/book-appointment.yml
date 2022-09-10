@@ -16,43 +16,17 @@ body:
     placeholder: "ex. xxxxxx-xxxx-xxxxx-xxxxxxx-xxxxxx"
   validations:
     required: true
-    
-- type: dropdown
-  id: reason
+
+
+
+- type: input
+  id: weight
   attributes:
-    label: Reason for the appointment
-    description: "Select one of the reasons below for the reason of needing a doctor appointment"
-    options:
-      - Ask a Question
-      - Developed a condition
-      - Became ill
+    label: Weight
+    description: "Enter the current weight of the patent in kilograms"
+    placeholder: "ex. 170"
   validations:
     required: true
-
-- type: dropdown
-  id: condition
-  attributes:
-    label: Medical Condition
-    description: Select one of the medical conditions listed below
-    options:
-      - c-1 - unknown
-      - c-2 - yyyyyyyyyyyyy
-      - c-3 - zzzzzzzzzzzzz
-  validations:
-    required: false
-
-- type: dropdown
-  id: illness
-  attributes:
-    label: Medical illness
-    description: "Select one of the medical conditions listed below"
-    options:
-      - i-1 - unknown
-      - i-2 - xxxxxxxxxxx
-      - i-3 - yyyyyyyyyyy
-  validations:
-    required: false
-
     
 - type: input
   id: height
