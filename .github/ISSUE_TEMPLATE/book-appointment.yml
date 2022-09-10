@@ -20,7 +20,7 @@ body:
 - type: dropdown
   id: reason
   attributes:
-    label: Choose a reason for the appointment
+    label: Reason for the appointment
     description: Select one of the reasons below for the reason of needing a doctor appointment      
     options:
       - Ask a Question
@@ -32,7 +32,7 @@ body:
 - type: dropdown
   id: condition
   attributes:
-    label: Choose your medical condition
+    label: Medical Condition
     description: Select one of the medical conditions listed below
     options:
       - c-1 - unknown
@@ -44,7 +44,7 @@ body:
 - type: dropdown
   id: illness
   attributes:
-    label: Choose your medical illness
+    label: Medical illness
     description: Select one of the medical conditions listed below    
     options:
       - i-1 - unknown
@@ -78,22 +78,41 @@ body:
     description: Enter the current blod pressure of the patent
     placeholder: ex. xx/yy      
   validations:
-    required: true    
+    required: true  
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Please provide as much information about the patient's current health issue
+      render: shell     
 
 - type: dropdown
   id: communication
   attributes:
-    label: Select a method of communication
+    label: Method of Communication
+    description: Select the preffered method to communicate with the doctor      
     options:
       - Chat
       - Telephone Call
       - Video Conference
   validations:
     required: true
+    
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, the patient agrees to follow our [Code of Conduct](https://project-deserve.github.io)
+      options:
+        - label: Confirmation
+          required: true    
         
 - type: checkboxes
+  id: expectation
   attributes:
-    label: I acknowledge that creating this health issue does not guarantee an appointment
+    label: Expectation  
+    description: The patient acknowledges that creating this health issue does not guarantee an appointment
     options:
-      - label: Confirm
+      - label: Confirmation
         required: true

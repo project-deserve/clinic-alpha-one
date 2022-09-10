@@ -17,11 +17,75 @@ body:
   validations:
     required: true
     
+- type: input
+  id: name
+  attributes:
+    label: Display Name
+    description: Enter the full name of the patient if permission is granted by tye patient
+    placeholder: ex. Eric Olufemi Obi
+  validations:
+    required: false
+    
+- type: input
+  id: birth_date
+  attributes:
+    label: Date of Birth
+    description: Enter the date of birth
+    placeholder: ex. yyyy/mm/dd
+  validations:
+    required: true    
+    
+- type: dropdown
+  id: gender
+  attributes:
+    label: Gender
+    description: Select the preffered gender      
+    options:
+      - Male
+      - Female
+      - Unknown
+  validations:
+    required: true    
+    
+- type: input
+  id: weight
+  attributes:
+    label: Weight
+    description: Enter the current weight of the patent in kilograms
+    placeholder: ex. 170       
+  validations:
+    required: false
+    
+- type: input
+  id: height
+  attributes:
+    label: Height
+    description: Enter the current height of the patent in meters
+    placeholder: ex. 1.2      
+  validations:
+    required: false
+    
+- type: input
+  id: blood_pressure
+  attributes:
+    label: Blood Pressure
+    description: Enter the current blod pressure of the patent
+    placeholder: ex. xx/yy      
+  validations:
+    required: false    
 
+  - type: textarea
+    id: medical_history
+    attributes:
+      label: Medical History
+      description: Please provide as much information about the patients medical history
+      render: shell    
         
 - type: checkboxes
+  id: liability
   attributes:
-    label: I acknowledge that submitting this form makes this data public
+    label: Public Liability  
+    description: The patient acknowledges that submitting this form will make the above health information public
     options:
       - label: Confirm
         required: true
