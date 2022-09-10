@@ -83,7 +83,7 @@ body:
 
 - type: textarea
   id: additional_info
-    attributes:
+   attributes:
       label: Additional Information
       description: "Please provide as much information about the patient's current health issue"
       render: markdown   
@@ -103,13 +103,13 @@ body:
     required: true
     
 - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: "By submitting this issue, the patient agrees to follow our [Code of Conduct](https://project-deserve.github.io)"
-      options:
-        - label: Confirmation
-          required: true    
+  id: terms
+  attributes:
+    label: Code of Conduct
+    description: "By submitting this issue, the patient agrees to follow our [Code of Conduct](https://project-deserve.github.io)"
+    options:
+      - label: Confirmation
+        required: true    
 
         
 - type: checkboxes
