@@ -71,8 +71,9 @@ body:
   validations:
     required: true
     
+    
 - type: input
-  id: bloodpressure
+  id: blood_pressure
   attributes:
     label: Blood Pressure
     description: Enter the current blod pressure of the patent
