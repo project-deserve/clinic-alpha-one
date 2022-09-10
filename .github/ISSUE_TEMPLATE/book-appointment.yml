@@ -34,7 +34,7 @@ body:
   id: condition
   attributes:
     label: Medical Condition
-    description: Select one of the medical conditions listed below
+    description: "Select one of the medical conditions listed below"
     options:
       - c-1 - unknown
       - c-2 - yyyyyyyyyyyyy
@@ -85,8 +85,8 @@ body:
     id: additional_info
     attributes:
       label: Additional Information
-      description: Please provide as much information about the patient's current health issue
-      render: shell   
+      description: "Please provide as much information about the patient's current health issue"
+      render: markdown   
   validations:
     required: true      
 
@@ -116,7 +116,7 @@ body:
   id: expectation
   attributes:
     label: Expectation  
-    description: The patient acknowledges that creating this health issue does not guarantee an appointment
+    description: "The patient acknowledges that creating this health issue does not guarantee an appointment"
     options:
       - label: Confirmation
         required: true
