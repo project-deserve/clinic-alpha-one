@@ -17,7 +17,42 @@ body:
   validations:
     required: true
 
+    
+- type: dropdown
+  id: reason
+  attributes:
+    label: Reason for the appointment
+    description: "Select one of the reasons below for the reason of needing a doctor appointment"
+    options:
+      - Ask a Question
+      - Developed a condition
+      - Became ill
+  validations:
+    required: true
 
+- type: dropdown
+  id: condition
+  attributes:
+    label: Medical Condition
+    description: Select one of the medical conditions listed below
+    options:
+      - c-1 - unknown
+      - c-2 - yyyyyyyyyyyyy
+      - c-3 - zzzzzzzzzzzzz
+  validations:
+    required: false
+
+- type: dropdown
+  id: illness
+  attributes:
+    label: Medical illness
+    description: "Select one of the medical conditions listed below"
+    options:
+      - i-1 - unknown
+      - i-2 - xxxxxxxxxxx
+      - i-3 - yyyyyyyyyyy
+  validations:
+    required: false
 
 - type: input
   id: weight
