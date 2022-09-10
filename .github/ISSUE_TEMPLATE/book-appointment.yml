@@ -80,7 +80,15 @@ body:
     placeholder: "ex. xx/yy"
   validations:
     required: true
-  
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Please provide as much information about the patient's current health issue
+      render: shell   
+  validations:
+    required: true      
 
 - type: dropdown
   id: communication
