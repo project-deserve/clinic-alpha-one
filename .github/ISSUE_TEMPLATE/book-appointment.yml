@@ -53,14 +53,6 @@ body:
   validations:
     required: false
 
-- type: input
-  id: weight
-  attributes:
-    label: Weight
-    description: "Enter the current weight of the patent in kilograms"
-    placeholder: "ex. 170"
-  validations:
-    required: true
     
 - type: input
   id: height
@@ -71,7 +63,14 @@ body:
   validations:
     required: true
  
-
+- type: input
+  id: blood_pressure
+  attributes:
+    label: Blood Pressure
+    description: "Enter the current blod pressure of the patent"
+    placeholder: "ex. xx/yy"
+  validations:
+    required: true
 
   - type: textarea
     id: additional_info
