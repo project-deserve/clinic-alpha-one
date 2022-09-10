@@ -1,0 +1,27 @@
+name: Create Personal Health Record
+description: This form enables a nurse to capture all data required to create a health record
+labels: []
+title: "Create Personal Health Record"
+
+body:
+- type: markdown
+  attributes:
+    value: ![IMAGE](https://avatars.githubusercontent.com/u/111590499?s=60&v=4)
+    
+- type: input
+  id: id
+  attributes:
+    label: Identity Number
+    description: Enter the Personal health record number for the patient
+    placeholder: ex. xxxxxx-xxxx-xxxxx-xxxxxxx-xxxxxx     
+  validations:
+    required: true
+    
+
+        
+- type: checkboxes
+  attributes:
+    label: I acknowledge that submitting this form makes this data public
+    options:
+      - label: Confirm
+        required: true
