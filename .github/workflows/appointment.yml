@@ -18,7 +18,7 @@ jobs:
         with:
           template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
 
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/45781821-5ce4-40e3-a7c4-8cf6c086be09/appointment.json"
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json"
 
       - name: Commit changes
         shell: bash
