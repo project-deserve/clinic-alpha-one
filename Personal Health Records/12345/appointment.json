@@ -4,8 +4,8 @@
   "date_of_birth": "1957/12/24",
   "gender": "Male",
   "weight": "52",
-  "height": "5/7",
+  "height": "5/6",
   "blood_pressure": "150",
-  "medical_history": "```shell\nI am diabetic\n```",
+  "medical_history": "```shell\nI got diabetics\n```",
   "confirm": true
 }
