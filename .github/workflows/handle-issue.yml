@@ -11,36 +11,20 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
-          
-      - name: Git Config
-        shell: bash
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
-          git config --global user.name "github-actions[bot]" && \      
+          node-version: '16'   
 
       - uses: ./.github/actions/issue-parser 
         id: issue-parser-appointment
         with:
           template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
           
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json"
-      
-      - name: Git Commit
-        shell: bash
-        run: |
-          git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json" && \    
-      
-      - uses: ./.github/actions/issue-parser 
-        id: issue-parser-record
-        with:
-          template-path: .github/ISSUE_TEMPLATE/create-health-record.yml
-          
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/record.json"      
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json"   
 
       - name: Commit Push
         shell: bash
         run: |
-          git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/record.json" && \          
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
+          git config --global user.name "github-actions[bot]" && \          
+          git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json" && \          
           git commit -m 'New data for ${{ steps.issue-parser.outputs.issueparser_id }}' && \
           git push
