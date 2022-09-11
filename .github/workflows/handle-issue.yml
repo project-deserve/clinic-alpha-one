@@ -20,10 +20,10 @@ jobs:
           git config --global user.name "github-actions[bot]" && \      
 
       - uses: ./.github/actions/issue-parser 
-        id: issue-parser-1
+        id: issue-parser-appointment
         with:
           template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
-
+          
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json"
       
       - name: Git Commit
@@ -32,10 +32,10 @@ jobs:
           git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json" && \    
       
       - uses: ./.github/actions/issue-parser 
-        id: issue-parser-2
+        id: issue-parser-record
         with:
           template-path: .github/ISSUE_TEMPLATE/create-health-record.yml
-
+          
       - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/record.json"      
 
       - name: Commit Push
