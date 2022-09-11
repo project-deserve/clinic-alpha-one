@@ -1,11 +1,12 @@
 {
   "id": "691b1821-5ce4-40e3-a7c4-8cf6c086be09",
-  "reason": "Developed a condition",
-  "condition": "c-1 - unknown",
-  "illness": "",
-  "weight": "52",
-  "height": "5/6",
+  "reason": "Became ill",
+  "condition": "c-3 - zzzzzzzzzzzzz",
+  "illness": "i-3 - yyyyyyyyyyy",
+  "weight": "55",
+  "height": "5/7",
   "blood_pressure": "150",
+  "additional_info": "```markdown\nI have to get a vaccination asap\n```",
   "communication": "Video Conference",
-  "confirm": true
+  "confirmation": true
 }
