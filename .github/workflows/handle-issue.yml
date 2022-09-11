@@ -1,30 +1,31 @@
-name: Handle Issue
+name: Create Health Record
 on:
   issues:
     types: opened
 concurrency: 'main'
 jobs:
-  handle_issue:
+  create_health_record:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'   
+          node-version: '16'
 
       - uses: ./.github/actions/issue-parser 
-        id: issue-parser-appointment
+        id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/book-appointment.yml
-          
-      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json"   
+          template-path: .github/ISSUE_TEMPLATE/create-health-record.yml
 
-      - name: Commit Push
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}' > "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/record.json"
+
+      - name: Commit changes
         shell: bash
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
-          git config --global user.name "github-actions[bot]" && \          
-          git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json" && \          
-          git commit -m 'New data for ${{ steps.issue-parser.outputs.issueparser_id }}' && \
+          git config --global user.name "github-actions[bot]" && \
+          git pull && \          
+          git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/record.json" && \
+          git commit -m 'Health Record for ${{ steps.issue-parser.outputs.issueparser_id }}' && \
           git push
