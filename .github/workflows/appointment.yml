@@ -25,6 +25,7 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
           git config --global user.name "github-actions[bot]" && \
+          git pull && \
           git add "Personal Health Records/${{ steps.issue-parser.outputs.issueparser_id }}/appointment.json" && \
           git commit -m 'Appointment for ${{ steps.issue-parser.outputs.issueparser_id }}' && \
           git push
