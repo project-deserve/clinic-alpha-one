@@ -1,14 +1,15 @@
-name: 'GitHub Issue Parser'
-description: 'Use this action to convert issues into a unified JSON structure.'
+name: GitHub Issue Forms Body Parser
+author: PatrickHeneise
+description:
+  'Issue Forms is a great way to structure GitHub Issues to an expected format,
+  and to make it easier to capture information.'
 branding:
-  icon: "check-square"
-  color: green
-inputs:
-  template-path:
-    description: 'Path to the issue form template file'
+  color: blue
+  icon: chevron-right
 outputs:
-  jsonString:
-    description: 'JSON string'
+  data:
+    description:
+      The extracted payload data from the issue body labels in JSON encoded form
 runs:
-  using: 'node12'
   main: './dist/index.js'
+  using: node16

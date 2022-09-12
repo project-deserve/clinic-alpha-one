@@ -1,0 +1,28 @@
+name: Handle Health Issue
+on:
+  issues:
+    types: opened
+concurrency: 'main'
+jobs:
+  handle_health_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          
+      - uses: ./.github/actions/issue-parser     
+        id: parse
+      - run: echo "${{ JSON.stringify(steps.parse.outputs.data) }}"  > "Personal Health Records/${{ steps.parse.outputs.data.identity.number }}/form-data.json"
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
+          git config --global user.name "github-actions[bot]" && \
+          git pull && \          
+          git add "Personal Health Records/${{ steps.parse.outputs.data.identity.number }}/form-data.json" && \
+          git commit -m 'Health Issue Transaction for ${{ steps.parse.outputs.data.identity.number }}' && \
+          git push
