@@ -9668,10 +9668,11 @@ const core = __nccwpck_require__(8864);
 const github = __nccwpck_require__(6366);
 
 try {
-  const formData = core.getInput('form-data');
-  console.log(`Input ${formData}!`);
+  const formData = JSON.parse(core.getInput('form-data'));
+  console.log(formData);
   
   const id = formData['identity-number'].text
+  core.setOutput("id", id);  
   core.setOutput("readme", "# " + id);
 
   const payload = JSON.stringify(github.context.payload, undefined, 2)
