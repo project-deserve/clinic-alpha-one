@@ -15,6 +15,7 @@ jobs:
           
       - uses: ./.github/actions/issue-parser     
         id: parse
+      - run: echo '${{ steps.parse.outputs.data['identity-number'] }}'
       - run: echo '${{ steps.parse.outputs.data }}'  > "Personal Health Records/form-data.json"
 
       - name: Commit changes
