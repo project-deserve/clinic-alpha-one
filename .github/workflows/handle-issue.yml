@@ -19,7 +19,7 @@ jobs:
       - uses: ./.github/actions/issue-handler     
         id: handle
         with:
-          form-data: steps.parse.outputs.data     
+          form-data: '${{ steps.parse.outputs.data }}'   
           
       - run: echo '${{ steps.handle.outputs.readme }}'  > "Personal Health Records/${{ steps.handle.outputs.id }}/test.md"      
 

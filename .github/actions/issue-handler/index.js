@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const formData = core.getInput('form-data');
+  const formData = JSON.parse(core.getInput('form-data'));
   console.log(`Input ${formData}!`);
   
   const id = formData['identity-number'].text
