@@ -17,5 +17,5 @@ outputs:
     description:
       The health record in markdown text      
 runs:
-  main: './dist/index.mjs'
+  main: './dist/index.js'
   using: node16
