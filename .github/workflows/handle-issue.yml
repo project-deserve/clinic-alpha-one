@@ -21,8 +21,4 @@ jobs:
       - name: Commit changes
         shell: bash
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
-          git config --global user.name "github-actions[bot]" && \       
-          git add "Personal Health Records/form-data.json" && \
-          git commit -m 'Health Issue Transaction' && \
-          git push
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/form-data.json" &&  git commit -m 'Health Issue Transaction' &&  git push
