@@ -1,0 +1,21 @@
+name: Project Deserve Issue Handler
+description:
+  'Process the health issue JSON data to create a new health record or update an existing one with a new health issue'
+branding:
+  color: red
+  icon: chevron-right
+inputs:
+  form-data:
+    description: 'health issue form data in JSON'
+    required: true
+    default: '{}'  
+outputs:
+  id:
+    description:
+      The health record identity number     
+  readme:
+    description:
+      The health record in markdown text      
+runs:
+  main: './dist/index.mjs'
+  using: node16

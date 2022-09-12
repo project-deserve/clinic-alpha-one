@@ -15,9 +15,15 @@ jobs:
           
       - uses: ./.github/actions/issue-parser     
         id: parse
-      - run: echo '${{ steps.parse.outputs.data }}'  > "Personal Health Records/${{ fromJson(steps.parse.outputs.data)['identity-number'].text }}/form-data.json"
+      
+      - uses: ./.github/actions/issue-handler     
+        id: handle
+        with:
+          form-data: steps.parse.outputs.data     
+          
+      - run: echo '${{ steps.handle.outputs.readme }}'  > "Personal Health Records/${{ steps.handle.outputs.id }}/test.md"      
 
       - name: Commit changes
         shell: bash
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/${{ fromJson(steps.parse.outputs.data)['identity-number'].text }}/form-data.json" &&  git commit -m 'Health Issue Transaction for ${{ fromJson(steps.parse.outputs.data)['identity-number'].text }}' &&  git push
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/${{ steps.handle.outputs.id }}/test.md" &&  git commit -m 'Health Issue Transaction for ${{ steps.handle.outputs.id }}' &&  git push
