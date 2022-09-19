@@ -20,10 +20,8 @@ jobs:
         id: handle
         with:
           form-data: '${{ steps.parse.outputs.data }}'   
-          
-      - run: echo '${{ steps.handle.outputs.readme }}'  > "Personal Health Records/${{ steps.handle.outputs.id }}/test.md"      
 
       - name: Commit changes
         shell: bash
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/${{ steps.handle.outputs.id }}/test.md" &&  git commit -m 'Health Issue Transaction for ${{ steps.handle.outputs.id }}' &&  git push
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/${{ steps.handle.outputs.id }}/readme.md" &&  git commit -m 'Health Issue Transaction for ${{ steps.handle.outputs.id }}' &&  git push
