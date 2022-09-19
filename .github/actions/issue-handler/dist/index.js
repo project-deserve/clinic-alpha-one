@@ -9741,7 +9741,7 @@ function createHeathRecord(formData) {
 	const dirName = "Personal Health Records/" + id;	
 	const fileName = dirName + '/readme.md';		
 	const cd = (new Date()).toISOString().split('T')[0];
-	const em = formData["email"].text;
+	const em = formData["email-address"].text;
 	const dn = formData["display-name"].text;
 	const dob = formData["date-of-birth"].text;
 	const gen = formData["gender"].text; 
