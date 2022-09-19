@@ -9722,7 +9722,7 @@ function updateHealthRecord(id, formData) {
 	const info = formData["additional-information"].text;  	
 	const comm = formData["method-of-communication"].text; 
 	
-	const md = `<a href="https://github.com/project-deserve/project-deserve.github.io/issues/${issueId}">${now}</a>`	
+	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${hgt} | ${bp} | ${comm} | \n`;
 	
 	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n# Illnesses" + healthRecord[1];
@@ -9735,7 +9735,7 @@ function createHeathRecord(formData) {
 	
 	const rootReadme = "Personal Health Records/readme.md";
 	const rawdata = fs.readFileSync(rootReadme, 'utf8');
-	const newData = rawdata.toString() + "* [" + id + "](./" + id + ")\n---"
+	const newData = rawdata.toString() + "\n* [" + id + "](./" + id + ")\n---"
 	fs.writeFileSync(rootReadme, newData);		
 	
 	const dirName = "Personal Health Records/" + id;	
