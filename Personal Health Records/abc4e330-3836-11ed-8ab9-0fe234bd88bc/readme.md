@@ -11,7 +11,7 @@
 
 | Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
-| <a href="https://github.com/project-deserve/project-deserve.github.io/issues/56">2022-09-19</a> | Ask a Question | *No response* | *No response* | 55 | 5/7 | 150 | Video Conference | 
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/56">2022-09-19</a> | Ask a Question | *No response* | *No response* | 55 | 5/7 | 150 | Video Conference | 
 
 # Illnesses
 
