@@ -24,7 +24,7 @@ jobs:
       - name: Commit changes
         shell: bash
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/readme.md" && git add "Personal Health Records/${{ steps.handle.outputs.id }}/readme.md" &&  git commit -m 'Health Issue Transaction for ${{ steps.handle.outputs.id }}' &&  git push
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" &&  git config --global user.name "github-actions[bot]" && git add "Personal Health Records/readme.md" && git add "Personal Health Records/${{ steps.handle.outputs.id }}/readme.md" &&  git commit -m 'Fix #${{github.event.issue.number}} Health Issue Transaction for ${{ steps.handle.outputs.id }}' &&  git push
           
       - name: Close Issue
         if: steps.handle.outputs.type == 'create'
