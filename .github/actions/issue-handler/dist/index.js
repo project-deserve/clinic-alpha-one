@@ -9727,6 +9727,7 @@ function updateHealthRecord(id, formData) {
 	
 	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n# Illnesses" + healthRecord[1];
 	core.setOutput("id", id);  	  
+	core.setOutput("type", "update");  	
 	fs.writeFileSync(fileName, readme);	
 }	
 
@@ -9750,7 +9751,8 @@ function createHeathRecord(formData) {
 	const bp = formData["blood-pressure"].text;
 	const mh = formData["medical-history"].text;    
 
-	core.setOutput("id", id);  	  
+	core.setOutput("id", id);  
+	core.setOutput("type", "create");  	
 	const readme = 
 `
 # ${id}
