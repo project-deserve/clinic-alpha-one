@@ -9,13 +9,13 @@ body:
     value: "![IMAGE](https://avatars.githubusercontent.com/u/111590499?s=60&v=4) Project Deserve - Create Personal Health Record"
     
 - type: input
-  id: id
+  id: email
   attributes:
-    label: Identity Number
-    description: Enter the Personal health record number for the patient
-    placeholder: ex. xxxxxx-xxxx-xxxxx-xxxxxxx-xxxxxx     
+    label: Email Address
+    description: Enter the email address for the patient
+    placeholder: ex. name@domain.com     
   validations:
-    required: true
+    required: false
     
 - type: input
   id: name
