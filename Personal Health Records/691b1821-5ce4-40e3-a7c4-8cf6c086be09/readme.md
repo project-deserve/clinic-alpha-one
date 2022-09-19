@@ -11,7 +11,6 @@
 | Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | [2022/09/09](https://github.com/project-deserve/clinic-alpha-one/issues/13)| Have a Condition| [c-1](#cnds) | | 52 |5/6 |150 |Video Conference| 
-
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/57">2022-09-19</a> | Developed a condition | c-2 - yyyyyyyyyyyyy | i-2 - xxxxxxxxxxx | 52 | 5/7 | 150 | Video Conference | 
 
 # Illnesses
