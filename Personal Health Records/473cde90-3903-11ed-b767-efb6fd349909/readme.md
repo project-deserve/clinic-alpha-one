@@ -11,7 +11,7 @@
 
 | Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/65">2022-09-20</a> | Developed a condition | c-1 - unknown | *No response* | 52 | 5/6 | 150 | Video Conference |
 # Illnesses
 
 | Id | Type | Start Date | End Date | Created | Updated | Medication Taken |  
