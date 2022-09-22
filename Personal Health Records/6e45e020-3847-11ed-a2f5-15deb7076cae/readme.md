@@ -11,7 +11,8 @@
 
 | Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
-| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/60">2022-09-19</a> | Became ill | c-1 - unknown | i-2 - xxxxxxxxxxx | 52 | 5/7 | 150 | Video Conference |
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/60">2022-09-19</a> | Became ill | c-1 - unknown | i-2 - xxxxxxxxxxx | 52 | 5/7 | 150 | Video Conference 
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/62">2022-09-20</a> | Ask a Question | *No response* | *No response* | 52 | 5/6 | 155 | Video Conference |
 # Illnesses
 
 | Id | Type | Start Date | End Date | Created | Updated | Medication Taken |  
