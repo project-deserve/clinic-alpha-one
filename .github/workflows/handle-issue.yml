@@ -33,10 +33,11 @@ jobs:
         with:
           issue-number: ${{github.event.issue.number}}
           body: |
-            # Patent Identity: ${{ steps.handle.outputs.id }}
-            Please click [here][1] to join the join or wait for a doctor
+            # Patent Identity: [${{ steps.handle.outputs.id }}][1]
+            Please click [on this link][2] to join the join or wait for a doctor
 
-            [1]: https://pade.chat:5443/ofmeet/${{ steps.handle.outputs.id }}-${{ github.event.issue.number }}
+            [1]: https://github.com/project-deserve/clinic-alpha-one/tree/main/Personal%20Health%20Records/${{ steps.handle.outputs.id }}
+            [2]: https://pade.chat:5443/ofmeet/${{ steps.handle.outputs.id }}-${{ github.event.issue.number }}
           reactions: eyes
           
       - name: Close Issue
