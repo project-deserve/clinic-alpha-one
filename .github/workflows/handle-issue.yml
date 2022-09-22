@@ -14,11 +14,11 @@ jobs:
           node-version: '16'
 
       - name: Create issues JSON by parsing form           
-      - uses: ./.github/actions/issue-parser     
+        uses: ./.github/actions/issue-parser     
         id: parse
 
       - name: Process issues JSON      
-      - uses: ./.github/actions/issue-handler     
+        uses: ./.github/actions/issue-handler     
         id: handle
         with:
           form-data: '${{ steps.parse.outputs.data }}'   
