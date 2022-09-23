@@ -9724,7 +9724,7 @@ function updateHealthRecord(id, formData) {
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${bp} | ${comm} |`;
 	
-	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + info;
+	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + now + "\n" + info;
 	core.setOutput("id", id);  	  
 	core.setOutput("type", "update");  	
 	fs.writeFileSync(fileName, readme);	
@@ -9804,6 +9804,7 @@ function createHeathRecord(formData) {
 
 ## Medical History
 
+${now}
 ${mh}
 `
 

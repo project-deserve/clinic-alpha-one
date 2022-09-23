@@ -41,7 +41,7 @@ jobs:
           reactions: eyes
           
       - name: Close Issue
-        if: steps.handle.outputs.type == 'create'
+        if: steps.handle.outputs.type != 'create' && steps.handle.outputs.type != 'update'
         uses: peter-evans/close-issue@v2
         with:
-          comment: Health Record updated/created          
+          comment: Health Issue Rejected!!         
