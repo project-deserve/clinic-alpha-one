@@ -9718,11 +9718,12 @@ function updateHealthRecord(id, formData) {
 	const ill = formData["medical-illness"].text;
 	const wgt = formData["weight"].text;
 	const bp = formData["blood-pressure"].text;
+	const bt = formData["body-temperature"].text;		
 	const info = formData["additional-information"].text;  	
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;
 	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
-	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${bp} | ${comm} |`;
+	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${bp} | ${bt} | ${comm} |`;
 	
 	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + now + "\n" + info;
 	core.setOutput("id", id);  	  
@@ -9745,6 +9746,7 @@ function createHeathRecord(formData) {
 	const wgt = formData["weight"].text;
 	const hgt = formData["height"].text;
 	const bp = formData["blood-pressure"].text;
+	const bt = formData["body-temperature"].text;	
 	const rsn = formData["reason-for-the-appointment"].text;
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;	
@@ -9766,9 +9768,9 @@ function createHeathRecord(formData) {
 
 ## Visits
 
-| Date | Reason | Condition | Illness | Weight | Blood Pressure | Communication | 
-| ---- | ------ | --------- | ------- | ------ | -------------- | ------------- | 
-| ${md}| ${rsn} | ${cdn}    | ${ill}  | ${wgt} | ${bp}          | ${comm}       | 
+| Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Communication | 
+| ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | 
+| ${md}| ${rsn} | ${cdn}    | ${ill}  | ${wgt} | ${bp}          | ${bt}       | ${comm}       | 
 
 ## Illnesses
 

@@ -73,6 +73,15 @@ body:
     placeholder: ex. xx/yy      
   validations:
     required: true    
+    
+- type: input
+  id: body_temperature
+  attributes:
+    label: Body Temperature
+    description: "Enter the current temperature of the patent"
+    placeholder: "ex. xx"
+  validations:
+    required: true
 
 - type: dropdown
   id: reason

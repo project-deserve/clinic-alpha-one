@@ -25,13 +25,22 @@ body:
     placeholder: "ex. 170"
   validations:
     required: true
- 
+
 - type: input
   id: blood_pressure
   attributes:
     label: Blood Pressure
     description: "Enter the current blod pressure of the patent"
     placeholder: "ex. xx/yy"
+  validations:
+    required: true
+    
+- type: input
+  id: body_temperature
+  attributes:
+    label: Body Temperature
+    description: "Enter the current temperature of the patent"
+    placeholder: "ex. xx"
   validations:
     required: true
 
