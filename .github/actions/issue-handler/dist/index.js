@@ -9737,7 +9737,8 @@ function createHeathRecord(formData) {
 	
 	const rootReadme = "Personal Health Records/readme.md";
 	const rawdata = fs.readFileSync(rootReadme, 'utf8');
-	const newData = rawdata.toString() + "\n* [" + id + "](./" + id + ")\n---"
+	const newRow = `| [${id}](./${id}) | ${dn}     | ${em} | ${cd}    | ${dob} | ${gen}   |`
+	const newData = rawdata.toString() + "\n" + newRow
 	fs.writeFileSync(rootReadme, newData);		
 	
 	const dirName = "Personal Health Records/" + id;	
