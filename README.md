@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/110731/191966461-b80f054f-0bb3-41b5-b549-10c34c46387b.png)  
+**Project Deserve** - Everyone deserves good health care
+
 ## Clinic Alpha One
 
 The data services offered by this clinic are shown in the menu above and list below. Click on any item below or above to access.
