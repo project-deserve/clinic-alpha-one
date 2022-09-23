@@ -9810,8 +9810,9 @@ ${mh}
 	
 	const rootReadme = "Personal Health Records/readme.md";
 	const rawdata = fs.readFileSync(rootReadme, 'utf8');
-	const newRow = `| [${id}](./${id}) | ${dn}     | ${em} | ${cd}    | ${dob} | ${gen}   |`
-	const newData = rawdata.toString() + "\n" + newRow
+	const newRow = `| [${id}](./${id}) | ${dn}     | ${em} | ${cd}    | ${dob} | ${gen}   |`;
+	const oldData = rawdata.toString();
+	const newData = oldData.substring(0, oldData.length - 2) + "\n" + newRow;
 	fs.writeFileSync(rootReadme, newData);			
 }
 
