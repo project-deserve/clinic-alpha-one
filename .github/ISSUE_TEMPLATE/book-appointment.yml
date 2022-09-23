@@ -17,7 +17,24 @@ body:
   validations:
     required: true
 
-    
+- type: input
+  id: weight
+  attributes:
+    label: Weight
+    description: "Enter the current weight of the patent in kilograms"
+    placeholder: "ex. 170"
+  validations:
+    required: true
+ 
+- type: input
+  id: blood_pressure
+  attributes:
+    label: Blood Pressure
+    description: "Enter the current blod pressure of the patent"
+    placeholder: "ex. xx/yy"
+  validations:
+    required: true
+
 - type: dropdown
   id: reason
   attributes:
@@ -53,34 +70,7 @@ body:
       - i-3 - yyyyyyyyyyy
   validations:
     required: false
-
-- type: input
-  id: weight
-  attributes:
-    label: Weight
-    description: "Enter the current weight of the patent in kilograms"
-    placeholder: "ex. 170"
-  validations:
-    required: true
     
-- type: input
-  id: height
-  attributes:
-    label: Height
-    description: "Enter the current height of the patent in meters"
-    placeholder: "ex. 1.2"
-  validations:
-    required: true
- 
-- type: input
-  id: blood_pressure
-  attributes:
-    label: Blood Pressure
-    description: "Enter the current blod pressure of the patent"
-    placeholder: "ex. xx/yy"
-  validations:
-    required: true
-
 - type: textarea
   id: additional_info
   attributes:
@@ -89,34 +79,12 @@ body:
       render: markdown   
   validations:
     required: true      
-
-- type: dropdown
-  id: communication
-  attributes:
-    label: Method of Communication
-    description: "Select the preffered method to communicate with the doctor"
-    options:
-      - Chat
-      - Telephone Call
-      - Video Conference
-  validations:
-    required: true
     
 - type: checkboxes
   id: terms
   attributes:
     label: Code of Conduct
-    description: "By submitting this issue, the patient agrees to follow our [Code of Conduct](https://project-deserve.github.io)"
+    description: "By submitting this issue, the patient agrees to follow our [Code of Conduct(https://project-deserve.com)"
     options:
       - label: Confirmation
-        required: true    
-
-        
-- type: checkboxes
-  id: expectation
-  attributes:
-    label: Expectation  
-    description: "The patient acknowledges that creating this health issue does not guarantee an appointment"
-    options:
-      - label: Confirmation
-        required: true
+        required: true  

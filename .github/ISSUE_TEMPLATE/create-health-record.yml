@@ -54,7 +54,7 @@ body:
     description: Enter the current weight of the patent in kilograms
     placeholder: ex. 170       
   validations:
-    required: false
+    required: true
     
 - type: input
   id: height
@@ -72,20 +72,58 @@ body:
     description: Enter the current blod pressure of the patent
     placeholder: ex. xx/yy      
   validations:
-    required: false    
+    required: true    
 
+- type: dropdown
+  id: reason
+  attributes:
+    label: Reason for the appointment
+    description: "Select one of the reasons below for the reason of needing a doctor appointment"
+    options:
+      - Ask a Question
+      - Developed a condition
+      - Became ill
+  validations:
+    required: true
+
+- type: dropdown
+  id: condition
+  attributes:
+    label: Medical Condition
+    description: "Select one of the medical conditions listed below"
+    options:
+      - c-1 - unknown
+      - c-2 - yyyyyyyyyyyyy
+      - c-3 - zzzzzzzzzzzzz
+  validations:
+    required: true
+
+- type: dropdown
+  id: illness
+  attributes:
+    label: Medical illness
+    description: "Select one of the medical conditions listed below"
+    options:
+      - i-1 - unknown
+      - i-2 - xxxxxxxxxxx
+      - i-3 - yyyyyyyyyyy
+  validations:
+    required: true
+    
 - type: textarea
   id: medical_history
   attributes:
       label: Medical History
-      description: Please provide as much information about the patients medical history
-      render: shell    
-        
+      description: Please provide as much additional information about the patients medical history and current health issue
+      render: markdown
+  validations:
+    required: true       
+    
 - type: checkboxes
-  id: liability
+  id: terms
   attributes:
-    label: Public Liability  
-    description: The patient acknowledges that submitting this form will make the above health information public
+    label: Code of Conduct
+    description: "By submitting this issue, the patient agrees to follow our [Code of Conduct(https://project-deserve.com)"
     options:
-      - label: Confirm
-        required: true
+      - label: Confirmation
+        required: true    

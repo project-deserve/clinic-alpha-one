@@ -9711,21 +9711,20 @@ function updateHealthRecord(id, formData) {
 	const rawdata = fs.readFileSync(fileName, 'utf8');
 	console.log("updateHealthRecord", id, fileName);
 	
-	const healthRecord = rawdata.toString().split("# Illnesses");
+	const healthRecord = rawdata.toString().split("## Illnesses");
 	
 	const rsn = formData["reason-for-the-appointment"].text;
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;
 	const wgt = formData["weight"].text;
-	const hgt = formData["height"].text;
 	const bp = formData["blood-pressure"].text;
 	const info = formData["additional-information"].text;  	
-	const comm = formData["method-of-communication"].text; 
+	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;
 	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
-	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${hgt} | ${bp} | ${comm} |`;
+	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${bp} | ${comm} |`;
 	
-	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n# Illnesses" + healthRecord[1];
+	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + info;
 	core.setOutput("id", id);  	  
 	core.setOutput("type", "update");  	
 	fs.writeFileSync(fileName, readme);	
@@ -9733,6 +9732,8 @@ function updateHealthRecord(id, formData) {
 
 function createHeathRecord(formData) {
 	let id = uuidv1();
+	const issueId = github.context.payload.issue.number;
+	const now = (new Date()).toISOString().split('T')[0];	
 	
 	const rootReadme = "Personal Health Records/readme.md";
 	const rawdata = fs.readFileSync(rootReadme, 'utf8');
@@ -9749,53 +9750,60 @@ function createHeathRecord(formData) {
 	const wgt = formData["weight"].text;
 	const hgt = formData["height"].text;
 	const bp = formData["blood-pressure"].text;
-	const mh = formData["medical-history"].text;    
+	const rsn = formData["reason-for-the-appointment"].text;
+	const cdn = formData["medical-condition"].text;
+	const ill = formData["medical-illness"].text;	
+	const mh = formData["medical-history"].text;  
+	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 
 	core.setOutput("id", id);  
 	core.setOutput("type", "create");  	
 	const readme = 
 `
-# ${id}
+## ${id}
 
-# Personal Details
+## Personal Details
 
-| Name | Email | Created | Birth |
-| ---  | ---   | ---     | ---   |
-| ${dn}| ${em} | ${cd}   | ${dob}|
+| Name | Email | Created | Birth | Gender | Height |
+| ---- | ----- | ------- | ----- | ------ | ------ |
+| ${dn}| ${em} | ${cd}   | ${dob}| ${gen} | ${hgt} |
 
-# Visits
+## Visits
 
-| Date | Reason | Condition | Illness | Weight | Height | Blood Pressure | Communication | 
-| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Date | Reason | Condition | Illness | Weight | Blood Pressure | Communication | 
+| ---- | ------ | --------- | ------- | ------ | -------------- | ------------- | 
+| ${md}| ${rsn} | ${cdn}    | ${ill}  | ${wgt} | ${bp}          | ${comm}       | 
 
-# Illnesses
+## Illnesses
 
-| Id | Type | Start Date | End Date | Created | Updated | Medication Taken |  
-| --- | --- | --- | --- | --- | --- | --- | 
+| Id    | Start Date | End Date | Created | Updated | Medication Taken | 
+| ---   | ---------- | -------- | ------- | ------- | ---------------- | 
+| ${ill}| ${md}      |          |         |         |                  | 
 
+## Conditions
 
-# Activities
+| Id    | Start Date | End Date | Medication Taken | 
+| ---   | ---------- | -------- | ---------------- | 
+| ${cdn}| ${md}      |          |                  | 
 
-| Id | Type | Date | Time | Weight | Reps | Sets | Duration | Heart Rate | Calories Burned |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+## Medications
 
+| Id  | Type | Start Date | Description | 
+| --- | ---- | ---------- | ----------- | 
 
-# Conditions
+## Treatments
 
-| Id | Start Date | End Date | Medication Taken |  
-| --- | --- | --- | --- |
+| Id  | Name | Start Date | End Date | Teatment Provider | 
+| --- | ---- | ---------- | -------- | ----------------- | 
 
+## Activities
 
-# Medications<a id=meds></a>
+| Id  | Type | Date | Time | Weight | Reps | Sets | Duration | Heart Rate | Calories Burned | 
+| --- | ---- | ---- | ---- | ------ | ---- | ---- | -------- | ---------- | --------------- | 
 
-| Id | Type | Start Date | Description |
-| --- | --- | --- | --- | 
+## Medical History
 
-
-# Treatments
-
-| Id | Name | Start Date | End Date | Teatment Provider |  
-| --- | --- | --- | --- | -- |
+${mh}
 `
 
 	if (!fs.existsSync(dirName)){
