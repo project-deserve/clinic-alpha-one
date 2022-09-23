@@ -9733,13 +9733,7 @@ function updateHealthRecord(id, formData) {
 function createHeathRecord(formData) {
 	let id = uuidv1();
 	const issueId = github.context.payload.issue.number;
-	const now = (new Date()).toISOString().split('T')[0];	
-	
-	const rootReadme = "Personal Health Records/readme.md";
-	const rawdata = fs.readFileSync(rootReadme, 'utf8');
-	const newRow = `| [${id}](./${id}) | ${dn}     | ${em} | ${cd}    | ${dob} | ${gen}   |`
-	const newData = rawdata.toString() + "\n" + newRow
-	fs.writeFileSync(rootReadme, newData);		
+	const now = (new Date()).toISOString().split('T')[0];		
 	
 	const dirName = "Personal Health Records/" + id;	
 	const fileName = dirName + '/readme.md';		
@@ -9757,7 +9751,7 @@ function createHeathRecord(formData) {
 	const mh = formData["medical-history"].text;  
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
-
+	
 	core.setOutput("id", id);  
 	core.setOutput("type", "create");  	
 	const readme = 
@@ -9813,6 +9807,12 @@ ${mh}
 		fs.mkdirSync(dirName);
 	}
 	fs.writeFileSync(fileName, readme);	
+	
+	const rootReadme = "Personal Health Records/readme.md";
+	const rawdata = fs.readFileSync(rootReadme, 'utf8');
+	const newRow = `| [${id}](./${id}) | ${dn}     | ${em} | ${cd}    | ${dob} | ${gen}   |`
+	const newData = rawdata.toString() + "\n" + newRow
+	fs.writeFileSync(rootReadme, newData);			
 }
 
 })();
