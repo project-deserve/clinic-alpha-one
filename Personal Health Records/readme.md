@@ -1,5 +1,8 @@
-# Personal Health Records
+# Health Records  
 
+Below are the heath records of each patient registered with this clinic. Please click the patient identity number to see the details
+
+---
 
 * [691b1821-5ce4-40e3-a7c4-8cf6c086be09](./691b1821-5ce4-40e3-a7c4-8cf6c086be09)
 ---
