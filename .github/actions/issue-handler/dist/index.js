@@ -9754,6 +9754,7 @@ function createHeathRecord(formData) {
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;	
 	const mh = formData["medical-history"].text;  
+	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 
 	core.setOutput("id", id);  
