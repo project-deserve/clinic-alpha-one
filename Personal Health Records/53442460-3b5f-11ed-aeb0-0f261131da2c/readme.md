@@ -42,10 +42,11 @@
 
 ## Medical History
 
+2022-09-23
 ```markdown
 Patient has been diagnosed as re-diabetic and complains of fatigue
 ```
-
+2022-09-23
 ```markdown
 I sneeze a lot and cough at night
 ```
