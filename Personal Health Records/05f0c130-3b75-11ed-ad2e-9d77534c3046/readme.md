@@ -9,10 +9,10 @@
 
 ## Visits
 
-| Date | Reason | Condition | Illness | Weight | Blood Pressure | Communication | 
-| ---- | ------ | --------- | ------- | ------ | -------------- | ------------- | 
-| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/76">2022-09-23</a>| Developed a condition | c-2 - yyyyyyyyyyyyy    | i-3 - yyyyyyyyyyy  | 52 | 155          | [video-conference](https://pade.chat:5443/ofmeet/05f0c130-3b75-11ed-ad2e-9d77534c3046-76)       | 
-| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/77">2022-09-23</a> | Ask a Question | *No response* | *No response* | 52 | 153 | [video-conference](https://pade.chat:5443/ofmeet/05f0c130-3b75-11ed-ad2e-9d77534c3046-77) |
+| Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Communication | 
+| ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | 
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/76">2022-09-23</a>| Developed a condition | c-2 - yyyyyyyyyyyyy    | i-3 - yyyyyyyyyyy  | 52 | 155  |        | [video-conference](https://pade.chat:5443/ofmeet/05f0c130-3b75-11ed-ad2e-9d77534c3046-76)       | 
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/77">2022-09-23</a> | Ask a Question | *No response* | *No response* | 52 | 153 | | [video-conference](https://pade.chat:5443/ofmeet/05f0c130-3b75-11ed-ad2e-9d77534c3046-77) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
