@@ -9758,7 +9758,10 @@ function createHeathRecord(formData) {
 	core.setOutput("type", "create");  	
 	const readme = 
 `
-## ${id}
+![image](https://user-images.githubusercontent.com/110731/191966461-b80f054f-0bb3-41b5-b549-10c34c46387b.png)  
+Everyone deserves good health care
+
+# Patient: ${id}
 
 ## Personal Details
 
