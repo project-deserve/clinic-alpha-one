@@ -69,10 +69,19 @@ body:
   id: blood_pressure
   attributes:
     label: Blood Pressure
-    description: Enter the current blod pressure of the patent
+    description: Enter the current blood pressure of the patent
     placeholder: ex. xx/yy      
   validations:
-    required: true    
+    required: false    
+
+- type: input
+  id: glucose_level
+  attributes:
+    label: Glucose Level
+    description: "Enter the current temperature of the patent in mmol/L"
+    placeholder: "ex. xx"
+  validations:
+    required: false
     
 - type: input
   id: body_temperature
@@ -81,7 +90,7 @@ body:
     description: "Enter the current temperature of the patent"
     placeholder: "ex. xx"
   validations:
-    required: true
+    required: false
 
 - type: dropdown
   id: reason

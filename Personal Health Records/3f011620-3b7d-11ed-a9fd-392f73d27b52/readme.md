@@ -12,9 +12,9 @@ Everyone deserves good health care
 
 ## Visits
 
-| Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Communication | 
-| ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | 
-| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/80">2022-09-23</a>| Ask a Question | c-1 - unknown    | i-1 - unknown  | 55 | 155          | 92       | [video-conference](https://pade.chat:5443/ofmeet/3f011620-3b7d-11ed-a9fd-392f73d27b52-80)       | 
+| Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Glucose | Communication | 
+| ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------- | ------------- | 
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/80">2022-09-23</a>| Ask a Question | c-1 - unknown    | i-1 - unknown  | 55 | 155    | 92  | 85       | [video-conference](https://pade.chat:5443/ofmeet/3f011620-3b7d-11ed-a9fd-392f73d27b52-80)       | 
 
 ## Illnesses
 
