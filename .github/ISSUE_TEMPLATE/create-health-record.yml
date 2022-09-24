@@ -1,8 +1,6 @@
 name: Create Personal Health Record
 description: This form enables a nurse to capture all data required to create a health record
-labels: []
-title: "Create Personal Health Record"
-
+labels: [registration, appointment]
 body:
 - type: markdown
   attributes:
