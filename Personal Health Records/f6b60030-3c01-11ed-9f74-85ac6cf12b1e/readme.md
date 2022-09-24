@@ -12,7 +12,7 @@ f6b60030-3c01-11ed-9f74-85ac6cf12b1e
 | John Doe| joh.doe\@large | 2022-09-24   | 1950/4/20| Male | 5/6 |
 
 ## Visits
-
+[Book Appointment](https://github.com/project-deserve/clinic-alpha-one/issues/new?assignees=&labels=appointment&template=book-appointment.yml)
 | Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/81">2022-09-24</a>| Developed a condition | c-2 - yyyyyyyyyyyyy    | i-2 - xxxxxxxxxxx  | 55 | 155          | 88       | 85         | [video-conference](https://pade.chat:5443/ofmeet/f6b60030-3c01-11ed-9f74-85ac6cf12b1e-81)       | 
