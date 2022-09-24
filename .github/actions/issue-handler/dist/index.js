@@ -9775,7 +9775,7 @@ ${id}
 | ${dn}| ${em} | ${cd}   | ${dob}| ${gen} | ${hgt} |
 
 ## Visits
-
+[Book Appointment](https://github.com/project-deserve/clinic-alpha-one/issues/new?assignees=&labels=appointment&template=book-appointment.yml)
 | Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | ------------- | 
 | ${md}| ${rsn} | ${cdn}    | ${ill}  | ${wgt} | ${bp}          | ${bt}       | ${gl}         | ${comm}       | 
