@@ -18,7 +18,7 @@ c199f870-3c10-11ed-9d07-b3c119a8af5f
 | Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/86">2022-09-24</a>| Became ill | c-3 - zzzzzzzzzzzzz    | i-3 - yyyyyyyyyyy  | 55 | 155          | 88       | 85         | [video-conference](https://pade.chat:5443/ofmeet/c199f870-3c10-11ed-9d07-b3c119a8af5f-86)       | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/87">2022-09-24</a> | Ask a Question | c-1 - unknown | i-1 - unknown | 55 | 155 | 88 | 85 | [video-conference](https://pade.chat:5443/ofmeet/c199f870-3c10-11ed-9d07-b3c119a8af5f-87) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
@@ -51,4 +51,9 @@ c199f870-3c10-11ed-9d07-b3c119a8af5f
 2022-09-24
 ```markdown
 Malaria last week
+```
+
+2022-09-24
+```markdown
+Can I change medication
 ```
