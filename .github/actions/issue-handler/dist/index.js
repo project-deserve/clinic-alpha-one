@@ -9763,9 +9763,12 @@ function createHeathRecord(formData) {
 ![image](https://user-images.githubusercontent.com/110731/191966461-b80f054f-0bb3-41b5-b549-10c34c46387b.png)  
 Everyone deserves good health care
 
-# Patient: ${id}
-
 ## Personal Details
+
+**Identity Number**
+````
+${id}  
+````
 
 | Name | Email | Created | Birth | Gender | Height |
 | ---- | ----- | ------- | ----- | ------ | ------ |
