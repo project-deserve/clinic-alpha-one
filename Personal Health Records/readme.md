@@ -15,4 +15,5 @@ Below are the heath records of each patient registered with this clinic. Please 
 | [f6b60030-3c01-11ed-9f74-85ac6cf12b1e](./f6b60030-3c01-11ed-9f74-85ac6cf12b1e) | John Doe     | joh.doe\@large | 2022-09-24    | 1950/4/20 | Male  
 | [89c5e550-3c0e-11ed-ad54-03c9272ddd1b](./89c5e550-3c0e-11ed-ad54-03c9272ddd1b) | Joseph Olajide     | lady\@large | 2022-09-24    | 1940/4/20 | Male  
 | [c199f870-3c10-11ed-9d07-b3c119a8af5f](./c199f870-3c10-11ed-9d07-b3c119a8af5f) | Remi Jegede     | <nurse@gmail.com> | 2022-09-24    | 1940/4/20 | Female  
-| [6c27cb50-6f1f-11ed-9d85-13ef0024c1e6](./6c27cb50-6f1f-11ed-9d85-13ef0024c1e6) | Kylo Harris     | <kylo@hotmail.com> | 2022-11-28    | 2022/12/4 | Male   |
+| [6c27cb50-6f1f-11ed-9d85-13ef0024c1e6](./6c27cb50-6f1f-11ed-9d85-13ef0024c1e6) | Kylo Harris     | <kylo@hotmail.com> | 2022-11-28    | 2022/12/4 | Male  
+| [d3816100-8aa2-11ed-a5b2-1943b1abe621](./d3816100-8aa2-11ed-a5b2-1943b1abe621) | Joseph Olajide     | <dele@olajide.net> | 2023-01-02    | 1957/12/24 | Unknown   |
