@@ -9736,7 +9736,7 @@ function updateHealthRecord(id, formData) {
 	const gl = formData["glucose-level"].text;		
 	const bt = formData["body-temperature"].text;		
 	const info = formData["additional-information"].text; 
-	const cm = formData["current-medication"].text;  
+	const cm = formData["current-medication"].text; 
 	const alg = formData["allergies"].text;  
  	
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;
@@ -9775,7 +9775,7 @@ function createHeathRecord(formData) {
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;	
 	const info = formData["additional-information"].text; 
-	const cm = formData["current-medication"].text;  
+	const cm = formData["current-medication"].text; 
 	const alg = formData["allergies"].text;  
 	
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;	
@@ -9818,21 +9818,6 @@ ${id}
 | Id    | Start Date | End Date | Medication Taken | 
 | ---   | ---------- | -------- | ---------------- | 
 | ${cdn}| ${md}      |          |                  | 
-
-## Medications
-
-| Id  | Type | Start Date | Description | 
-| --- | ---- | ---------- | ----------- | 
-
-## Treatments
-
-| Id  | Name | Start Date | End Date | Teatment Provider | 
-| --- | ---- | ---------- | -------- | ----------------- | 
-
-## Activities
-
-| Id  | Type | Date | Time | Weight | Reps | Sets | Duration | Heart Rate | Calories Burned | 
-| --- | ---- | ---- | ---- | ------ | ---- | ---- | -------- | ---------- | --------------- | 
 
 ## Medical History
 

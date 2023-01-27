@@ -126,7 +126,7 @@ body:
   validations:
     required: true
     
-- type: textarea
+- type: input
   id: current_medication
   attributes:
       label: Current Medication
@@ -135,7 +135,7 @@ body:
   validations:
     required: true  
 
-- type: textarea
+- type: input
   id: allergies
   attributes:
       label: Allergies
@@ -144,7 +144,7 @@ body:
   validations:
     required: true  
     
-- type: textarea
+- type: input
   id: additional_info
   attributes:
       label: Additional Information
