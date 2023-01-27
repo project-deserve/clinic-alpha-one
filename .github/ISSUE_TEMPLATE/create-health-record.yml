@@ -131,7 +131,7 @@ body:
   attributes:
       label: Current Medication
       description: Please list all current medication prescribed to this patient
-      render: markdown
+      placeholder: seperate with comma or space
   validations:
     required: true  
 
@@ -140,7 +140,7 @@ body:
   attributes:
       label: Allergies
       description: Please list all known allergies for this patient.
-      render: markdown
+      placeholder: seperate with comma or space
   validations:
     required: true  
     
@@ -149,7 +149,7 @@ body:
   attributes:
       label: Additional Information
       description: "Please provide as much additional information about the patient's current health issue"
-      render: markdown   
+      placeholder: type in any relevant infomation
   validations:
     required: true      
     
