@@ -9741,6 +9741,7 @@ function updateHealthRecord(id, formData) {
 	fs.writeFileSync(fileName, readme);	
 
 	core.setOutput("id", id);  	  
+	core.setOutput("bmi", bmi);  	
 	core.setOutput("type", "update"); 
 	core.setOutput("dte", getPrettyDate()); 	 	
 }	
@@ -9771,6 +9772,7 @@ function createHeathRecord(formData) {
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 	
 	core.setOutput("id", id);  
+	core.setOutput("bmi", bmi);  	
 	core.setOutput("type", "create");  	
 	core.setOutput("dte", getPrettyDate()); 		
 	const readme = 

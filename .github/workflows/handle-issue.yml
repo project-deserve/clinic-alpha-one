@@ -39,6 +39,42 @@ jobs:
             [1]: https://github.com/project-deserve/clinic-alpha-one/tree/main/Personal%20Health%20Records/${{ steps.handle.outputs.id }}
             [2]: https://pade.chat:5443/ofmeet/${{ steps.handle.outputs.id }}-${{ github.event.issue.number }}
           reactions: eyes
+
+      - name: under weight label
+        if: steps.handle.outputs.bmi < 18.5
+        uses: actions/github-script@v6    
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["bmi underweight"]
+            })  
+
+      - name: normal weight label
+        if: steps.handle.outputs.bmi >= 18.5 && steps.handle.outputs.bmi < 25
+        uses: actions/github-script@v6    
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["bmi normal"]
+            })              
+            
+      - name: over weight label
+        if: steps.handle.outputs.bmi >= 25
+        uses: actions/github-script@v6    
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["bmi overweight"]
+            })              
           
       - name: Close Issue
         if: steps.handle.outputs.type != 'create' && steps.handle.outputs.type != 'update'
