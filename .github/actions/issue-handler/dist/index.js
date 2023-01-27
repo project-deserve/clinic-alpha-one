@@ -9844,7 +9844,7 @@ ${id}
 	if (!fs.existsSync(dirName)){
 		fs.mkdirSync(dirName);
 	}
-	readme = readme + getFooter(now, cm, alg, mh);
+	readme = readme + getFooter(now, cm, alg, info);
 	fs.writeFileSync(fileName, readme);	
 	
 	const rootReadme = "Personal Health Records/readme.md";
