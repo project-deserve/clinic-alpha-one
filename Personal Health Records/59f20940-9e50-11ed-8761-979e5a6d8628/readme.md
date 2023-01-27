@@ -48,7 +48,19 @@ Everyone deserves good health care
 
 ## Medical History
 
-2023-01-27
+### 2023-01-27
+
+Current Medication
+```markdown
+Saw a doctor yesterday.
+Prescribed aspirin
+```
+Allergies
+```markdown
+Saw a doctor yesterday.
+Prescribed aspirin
+```
+Additional Info
 ```markdown
 Saw a doctor yesterday.
 Prescribed aspirin
