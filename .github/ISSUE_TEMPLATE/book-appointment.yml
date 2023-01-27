@@ -1,5 +1,5 @@
 name: Book Doctor Appointment
-description: This form enables a nurse to capture all data required by doctor to schedule an appointment
+description: This form enables a health care assistant to capture all data required by doctor to schedule an appointment
 labels: [appointment]
 body:
 - type: markdown
