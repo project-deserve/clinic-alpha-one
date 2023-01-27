@@ -33,7 +33,7 @@ jobs:
         with:
           issue-number: ${{github.event.issue.number}}
           body: |
-            # Doctor Appointment: [${{ steps.handle.outputs.id }}][1]
+            # Doctor Appointment: [${{ steps.handle.outputs.dte }}} - ${{ github.event.issue.title }}][1]
             Please click [on this link][2] to meet or wait for a doctor
 
             [1]: https://github.com/project-deserve/clinic-alpha-one/tree/main/Personal%20Health%20Records/${{ steps.handle.outputs.id }}

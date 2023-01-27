@@ -9703,6 +9703,11 @@ try {
   core.setFailed(error.message);
 } 
 
+function getPrettyDate() {
+	const d = new Date();
+	return ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+}
+
 function calcBMI(hgt, wgt) {
 	let bmi = (wgt / (hgt ** 2)).toFixed(2);	
 	return bmi;
@@ -9733,9 +9738,11 @@ function updateHealthRecord(id, formData) {
 	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${bmi} | ${hgt} | ${wgt} | ${bp} | ${bt} | ${gl} | ${comm} |`;
 	
 	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + now + "\n" + info;
-	core.setOutput("id", id);  	  
-	core.setOutput("type", "update");  	
 	fs.writeFileSync(fileName, readme);	
+
+	core.setOutput("id", id);  	  
+	core.setOutput("type", "update"); 
+	core.setOutput("dte", getPrettyDate()); 	 	
 }	
 
 function createHeathRecord(formData) {
@@ -9765,6 +9772,7 @@ function createHeathRecord(formData) {
 	
 	core.setOutput("id", id);  
 	core.setOutput("type", "create");  	
+	core.setOutput("dte", getPrettyDate()); 		
 	const readme = 
 `
 ![image](https://user-images.githubusercontent.com/110731/191966461-b80f054f-0bb3-41b5-b549-10c34c46387b.png)  
