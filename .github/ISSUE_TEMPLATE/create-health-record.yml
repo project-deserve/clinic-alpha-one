@@ -133,7 +133,7 @@ body:
       description: Please list all current medication prescribed to this patient
       placeholder: seperate with comma or space
   validations:
-    required: true  
+    required: false
 
 - type: input
   id: allergies
@@ -142,7 +142,7 @@ body:
       description: Please list all known allergies for this patient.
       placeholder: seperate with comma or space
   validations:
-    required: true  
+    required: false
     
 - type: input
   id: additional_info
@@ -151,7 +151,7 @@ body:
       description: "Please provide as much additional information about the patient's current health issue"
       placeholder: type in any relevant infomation
   validations:
-    required: true      
+    required: false    
     
 - type: checkboxes
   id: terms
