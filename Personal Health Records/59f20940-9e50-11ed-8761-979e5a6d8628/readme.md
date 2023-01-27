@@ -18,7 +18,7 @@ Everyone deserves good health care
 | Date | Reason | Condition | Illness | BMI    | Height | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | ------ | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/93">2023-01-27</a>| Became ill | c-1 - unknown    | i-2 - xxxxxxxxxxx  | 23.03 | 1.68 | 65 | 150/96          | 92       | 60         | [video-conference](https://pade.chat:5443/ofmeet/59f20940-9e50-11ed-8761-979e5a6d8628-93)       | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/95">2023-01-27</a> | Became ill | None | i-1 - unknown | 35.56 | 1.5 | 80 | 150/96 | 92 | 60 | [video-conference](https://pade.chat:5443/ofmeet/59f20940-9e50-11ed-8761-979e5a6d8628-95) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
@@ -52,4 +52,9 @@ Everyone deserves good health care
 ```markdown
 Saw a doctor yesterday.
 Prescribed aspirin
+```
+
+2023-01-27
+```markdown
+Soles are sore
 ```
