@@ -18,7 +18,7 @@ Everyone deserves good health care
 | Date | Reason | Condition | Illness | BMI    | Height | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | ------ | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/100">2023-01-27</a>| Ask a Question | c-1 - unknown    | i-1 - unknown  | 17.72 | 1.68 | 50 | 150/96          | 88       | 60         | [video-conference](https://pade.chat:5443/ofmeet/873b1680-9e8c-11ed-824a-915ca228e494-100)       | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/101">2023-01-27</a> | Ask a Question | None | None | 17.72 | 1.68 | 50 | 150/96 | 92 | 85 | [video-conference](https://pade.chat:5443/ofmeet/873b1680-9e8c-11ed-824a-915ca228e494-101) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
@@ -36,4 +36,5 @@ Everyone deserves good health care
 | Date  | Current Medication | Allergies | Additional Information | 
 | ----- | ------------------ | --------- | ---------------------- | 
 | 2023-01-27| aspirin knolg              | milk eggs dairy    |  I play games               | 
-| 2023-01-27| aspirin knolg              | milk eggs dairy    |  I play games               | 
+| 2023-01-27| aspirin knolg              | milk eggs dairy    |  I play games               
+| 2023-01-27| none              | none    |  nothing               | 
