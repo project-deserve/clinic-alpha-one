@@ -9785,7 +9785,7 @@ function createHeathRecord(formData) {
 	core.setOutput("bmi", bmi);  	
 	core.setOutput("type", "create");  	
 	core.setOutput("dte", getPrettyDate()); 		
-	const readme = 
+	let readme = 
 `
 ![image](https://user-images.githubusercontent.com/110731/191966461-b80f054f-0bb3-41b5-b549-10c34c46387b.png)  
 Everyone deserves good health care
