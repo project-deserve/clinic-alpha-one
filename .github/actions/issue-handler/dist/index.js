@@ -9704,7 +9704,7 @@ try {
 } 
 
 function calcBMI(hgt, wgt) {
-	let bmi = wgt / (hgt ** 2).toFixed(2);	
+	let bmi = (wgt / (hgt ** 2)).toFixed(2);	
 	return bmi;
 }
 
