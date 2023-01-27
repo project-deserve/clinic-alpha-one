@@ -23,7 +23,16 @@ body:
     placeholder: "ex. 170"
   validations:
     required: true
-
+    
+- type: input
+  id: height
+  attributes:
+    label: Height
+    description: Enter the current height of the patent in Meters
+    placeholder: ex. 1.2      
+  validations:
+    required: false
+    
 - type: input
   id: blood_pressure
   attributes:

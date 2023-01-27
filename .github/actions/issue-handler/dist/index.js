@@ -9703,6 +9703,10 @@ try {
   core.setFailed(error.message);
 } 
 
+function calcBMI(hgt, wgt) {
+	let bmi = wgt / (hgt ** 2) ;	
+	return bmi;
+}
 
 function updateHealthRecord(id, formData) {
 	const issueId = github.context.payload.issue.number;		
@@ -9717,6 +9721,8 @@ function updateHealthRecord(id, formData) {
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;
 	const wgt = formData["weight"].text;
+	const hgt = formData["height"].text;	
+	const bmi = calcBMI(hgt, wgt);
 	const bp = formData["blood-pressure"].text;
 	const gl = formData["glucose-level"].text;		
 	const bt = formData["body-temperature"].text;		
@@ -9724,7 +9730,7 @@ function updateHealthRecord(id, formData) {
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;
 	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
-	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${wgt} | ${bp} | ${bt} | ${gl} | ${comm} |`;
+	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${bmi} | ${hgt} | ${wgt} | ${bp} | ${bt} | ${gl} | ${comm} |`;
 	
 	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + now + "\n" + info;
 	core.setOutput("id", id);  	  
@@ -9746,6 +9752,7 @@ function createHeathRecord(formData) {
 	const gen = formData["gender"].text; 
 	const wgt = formData["weight"].text;
 	const hgt = formData["height"].text;
+	const bmi = calcBMI(hgt, wgt);	
 	const bp = formData["blood-pressure"].text;
 	const gl = formData["glucose-level"].text;	
 	const bt = formData["body-temperature"].text;	
@@ -9776,9 +9783,9 @@ ${id}
 
 ## Visits
 [Book Appointment](https://github.com/project-deserve/clinic-alpha-one/issues/new?assignees=&labels=appointment&template=book-appointment.yml)
-| Date | Reason | Condition | Illness | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
-| ---- | ------ | --------- | ------- | ------ | -------------- | ----------- | ------------- | ------------- | 
-| ${md}| ${rsn} | ${cdn}    | ${ill}  | ${wgt} | ${bp}          | ${bt}       | ${gl}         | ${comm}       | 
+| Date | Reason | Condition | Illness | BMI    | Height | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
+| ---- | ------ | --------- | ------- | ------ | ------ | ------ | -------------- | ----------- | ------------- | ------------- | 
+| ${md}| ${rsn} | ${cdn}    | ${ill}  | ${bmi} | ${hgt} | ${wgt} | ${bp}          | ${bt}       | ${gl}         | ${comm}       | 
 
 ## Illnesses
 
