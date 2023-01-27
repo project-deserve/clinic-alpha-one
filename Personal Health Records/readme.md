@@ -20,4 +20,5 @@ Below are the heath records of each patient registered with this clinic. Please 
 | [9014eaf0-9e47-11ed-8760-658677dc9e52](./9014eaf0-9e47-11ed-8760-658677dc9e52) | Joseph Olajide     | <dele@olajide.net> | 2023-01-27    | 1957/12/24 | Male  
 | [5903fc90-9e4c-11ed-b050-19ed0ec935e9](./5903fc90-9e4c-11ed-b050-19ed0ec935e9) | Jab Adu     | <olajide.dele@gmail.com> | 2023-01-27    | 1950/4/20 | Male  
 | [59f20940-9e50-11ed-8761-979e5a6d8628](./59f20940-9e50-11ed-8761-979e5a6d8628) | Francis Jones     | <dele@olajide.net> | 2023-01-27    | 1957/12/24 | Male  
-| [24849b70-9e86-11ed-ad7b-770948350e03](./24849b70-9e86-11ed-ad7b-770948350e03) | Yomi Johnson     | <dele@olajide.net> | 2023-01-27    | 2022/12/4 | Male   |
+| [24849b70-9e86-11ed-ad7b-770948350e03](./24849b70-9e86-11ed-ad7b-770948350e03) | Yomi Johnson     | <dele@olajide.net> | 2023-01-27    | 2022/12/4 | Male  
+| [873b1680-9e8c-11ed-824a-915ca228e494](./873b1680-9e8c-11ed-824a-915ca228e494) | Macy Bright     | <dele@olajide.net> | 2023-01-27    | 2022/12/4 | Female   |
