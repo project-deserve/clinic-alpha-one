@@ -5,9 +5,9 @@ Everyone deserves good health care
 ## Personal Details
 
 **Identity Number**
-````
+`
 24849b70-9e86-11ed-ad7b-770948350e03  
-````
+`
 
 | Name | Email | Created | Birth | Gender | Height |
 | ---- | ----- | ------- | ----- | ------ | ------ |
@@ -50,21 +50,4 @@ Everyone deserves good health care
 
 | Date  | Current Medication | Allergies | Additional Information | 
 | ----- | ------------------ | --------- | ---------------------- | 
-| 2023-01-27| ```markdown
-Aspirin
-Knoqs
-```              | ```markdown
-Milk, eggs and diary
-Ground nuts
-```    |  ```markdown
-I play basketball every evening
-```               | 
-| 2023-01-27| ```markdown
-Aspirin
-Knoqs
-```              | ```markdown
-Milk, eggs and diary
-Ground nuts
-```    |  ```markdown
-I play basketball every evening
-```               | 
+| 2023-01-27| Aspirin\nKnoqs | Milk, eggs and diary Ground nuts   |  I play basketball every evening  | 
