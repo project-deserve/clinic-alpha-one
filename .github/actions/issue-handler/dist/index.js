@@ -9708,6 +9708,10 @@ function getPrettyDate() {
 	return ("0" + d.getDate()).slice(-2) + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
 }
 
+function getFooter(now, cm, alg, info) {
+	return `| ${now}| ${cm}              | ${alg}    |  ${info}               | `
+}
+
 function calcBMI(hgt, wgt) {
 	let bmi = (wgt / (hgt ** 2)).toFixed(2);	
 	return bmi;
@@ -9731,13 +9735,16 @@ function updateHealthRecord(id, formData) {
 	const bp = formData["blood-pressure"].text;
 	const gl = formData["glucose-level"].text;		
 	const bt = formData["body-temperature"].text;		
-	const info = formData["additional-information"].text;  	
+	const info = formData["additional-information"].text; 
+	const cm = formData["current-medication"].text;  
+	const alg = formData["allergies"].text;  
+ 	
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;
 	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 	const visit = `| ${md} | ${rsn} | ${cdn} | ${ill} | ${bmi} | ${hgt} | ${wgt} | ${bp} | ${bt} | ${gl} | ${comm} |`;
 	
-	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1] + "\n" + now + "\n" + info;
+	const readme = healthRecord[0].substring(0, healthRecord[0].length - 2) + "\n" + visit + "\n## Illnesses" + healthRecord[1].substring(0, healthRecord[1].length - 2) + "\n" + getFooter(now, cm, alg, info);
 	fs.writeFileSync(fileName, readme);	
 
 	core.setOutput("id", id);  	  
@@ -9767,7 +9774,10 @@ function createHeathRecord(formData) {
 	const rsn = formData["reason-for-the-appointment"].text;
 	const cdn = formData["medical-condition"].text;
 	const ill = formData["medical-illness"].text;	
-	const mh = formData["medical-history"].text;  
+	const info = formData["additional-information"].text; 
+	const cm = formData["current-medication"].text;  
+	const alg = formData["allergies"].text;  
+	
 	const comm = `[video-conference](https://pade.chat:5443/ofmeet/${id}-${issueId})`;	
 	const md = `<a href="https://github.com/project-deserve/clinic-alpha-one/issues/${issueId}">${now}</a>`	
 	
@@ -9826,13 +9836,15 @@ ${id}
 
 ## Medical History
 
-${now}
-${mh}
+| Date  | Current Medication | Allergies | Additional Information | 
+| ----- | ------------------ | --------- | ---------------------- | 
+| ${now}| ${cm}              | ${alg}    |  ${info}               | 
 `
 
 	if (!fs.existsSync(dirName)){
 		fs.mkdirSync(dirName);
 	}
+	readme = readme + getFooter(now, cm, alg, mh);
 	fs.writeFileSync(fileName, readme);	
 	
 	const rootReadme = "Personal Health Records/readme.md";

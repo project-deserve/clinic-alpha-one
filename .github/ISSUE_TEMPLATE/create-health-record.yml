@@ -127,13 +127,31 @@ body:
     required: true
     
 - type: textarea
-  id: medical_history
+  id: current_medication
   attributes:
-      label: Medical History
-      description: Please provide as much additional information about the patients medical history and current health issue
+      label: Current Medication
+      description: Please list all current medication prescribed to this patient
       render: markdown
   validations:
-    required: true       
+    required: true  
+
+- type: textarea
+  id: allergies
+  attributes:
+      label: Allergies
+      description: Please list all known allergies for this patient.
+      render: markdown
+  validations:
+    required: true  
+    
+- type: textarea
+  id: additional_info
+  attributes:
+      label: Additional Information
+      description: "Please provide as much additional information about the patient's current health issue"
+      render: markdown   
+  validations:
+    required: true      
     
 - type: checkboxes
   id: terms
