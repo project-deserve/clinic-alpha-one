@@ -16,6 +16,15 @@ body:
     required: true
 
 - type: input
+  id: email
+  attributes:
+    label: Email Address
+    description: Enter the email address for the patient
+    placeholder: ex. name@domain.com     
+  validations:
+    required: false
+    
+- type: input
   id: weight
   attributes:
     label: Weight
