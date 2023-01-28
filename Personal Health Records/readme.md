@@ -3,7 +3,7 @@
 
 # Health Records  
 
-Below are the heath records of each patient registered with this clinic. Please click the patient identity number to see the details
+Below are the heath records of each patient registered with this Health Care Unit. Please click the patient identity number to see the details
 
 | Patient Identity                                                               | Name          | Email                    | Created      | Birth     | Gender |
 | ------------------------------------------------------------------------------ | ------------  | ----------------------   | -----------  | --------- | ------
