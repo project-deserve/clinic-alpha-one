@@ -18,7 +18,7 @@ Everyone deserves good health care
 | Date | Reason | Condition | Illness | BMI    | Height | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | ------ | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/104">2023-01-28</a>| Developed a condition | c-1 - unknown    | i-1 - unknown  | 25.39 | 1.60 | 65 | 130/87          | 92       | 85         | [video-conference](https://pade.chat:5443/ofmeet/1940a000-9f27-11ed-a933-d9a4ce34e352-104)       | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/105">2023-01-28</a> | Developed a condition | None | None | 28.34 | 1.68 | 80 | 150/96 | 92 | 85 | [video-conference](https://pade.chat:5443/ofmeet/1940a000-9f27-11ed-a933-d9a4ce34e352-105) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
@@ -35,4 +35,5 @@ Everyone deserves good health care
 
 | Date  | Current Medication | Allergies | Additional Information | 
 | ----- | ------------------ | --------- | ---------------------- | 
+| 2023-01-28| *No response*              | *No response*    |  *No response*               |
 | 2023-01-28| *No response*              | *No response*    |  *No response*               | 
