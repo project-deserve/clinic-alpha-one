@@ -18,7 +18,7 @@ Everyone deserves good health care
 | Date | Reason | Condition | Illness | BMI    | Height | Weight | Blood Pressure | Temperature | Glucose Level | Communication | 
 | ---- | ------ | --------- | ------- | ------ | ------ | ------ | -------------- | ----------- | ------------- | ------------- | 
 | <a href="https://github.com/project-deserve/clinic-alpha-one/issues/107">2023-02-04</a>| Ask a Question | c-1 - unknown    | i-1 - unknown  | 23.90 | 1.63 | 63.5 | 145/80          | 37       | 85         | [video-conference](https://pade.chat:5443/ofmeet/16a68330-a4c4-11ed-a404-c5fc4ed783e3-107)       | 
-
+| <a href="https://github.com/project-deserve/clinic-alpha-one/issues/108">2023-02-04</a> | Ask a Question | None | None | 40.00 | 1.50 | 90 | 150/96 | 37 | 60 | [video-conference](https://pade.chat:5443/ofmeet/16a68330-a4c4-11ed-a404-c5fc4ed783e3-108) |
 ## Illnesses
 
 | Id    | Start Date | End Date | Created | Updated | Medication Taken | 
@@ -35,4 +35,5 @@ Everyone deserves good health care
 
 | Date  | Current Medication | Allergies | Additional Information | 
 | ----- | ------------------ | --------- | ---------------------- | 
-| 2023-02-04| asprin paracetemol              | milk eggs dairy    |  i play sports               | 
+| 2023-02-04| asprin paracetemol              | milk eggs dairy    |  i play sports               |
+| 2023-02-04| none              | none    |  none               | 
