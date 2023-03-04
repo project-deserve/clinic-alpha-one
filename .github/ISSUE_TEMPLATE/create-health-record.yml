@@ -30,7 +30,7 @@ body:
   attributes:
     label: Date of Birth
     description: Enter the date of birth in the format yyyy/mm/dd
-    placeholder: ex. yyyy/mm/dd
+    placeholder: ex. dd/mm/yyyy
   validations:
     required: true    
     
