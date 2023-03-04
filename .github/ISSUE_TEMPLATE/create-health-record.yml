@@ -1,7 +1,7 @@
 name: Create Personal Health Record and Book Doctor Appointment
 description: This form enables a health care assistant to capture all data required to create a health record and book an appointment
 labels: [registration, appointment]
-title: Replace this with a very short decription for the patients issue or problem to help health care provider assist
+title: Replace this with a very short description for the patients issue or problem to help health care provider assist
 body:
 - type: markdown
   attributes:
