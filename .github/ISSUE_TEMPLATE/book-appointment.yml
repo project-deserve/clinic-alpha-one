@@ -1,6 +1,7 @@
 name: Book Doctor Appointment
 description: This form enables a health care assistant to capture all data required by doctor to schedule an appointment
 labels: [appointment]
+title: Replace this with a very short description of the patients issue or problem for the health care provider
 body:
 - type: markdown
   attributes:
